@@ -1,824 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>América Express [AEX] - Reclutamiento</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      color: #111111;
-    }
-
-    .container {
-       width: 95%;
-       max-width: 1600px;
-       margin: auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 6px;
-    }
-
-    .brand-text h3 {
-      font-size: 18px;
-      font-weight: 900;
-      color: #111;
-    }
-
-    .brand-text p {
-      font-size: 12px;
-      color: #6b7280;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 700;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #dc2626;
-    }
-
-    .hero {
-      padding: 70px 0 50px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.08), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(22, 163, 74, 0.08), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(0, 0, 0, 0.04), transparent 30%);
-      pointer-events: none;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      font-weight: 700;
-      color: #374151;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      margin-bottom: 25px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo-main {
-      width: 420px;
-      max-width: 100%;
-      margin: 0 auto 25px;
-      border-radius: 28px;
-      background: #ffffff;
-      border: 6px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10);
-      position: relative;
-      z-index: 1;
-      animation: float 3.5s ease-in-out infinite;
-      padding: 20px;
-    }
-
-    .logo-main img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      background: #fff;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
-
-    h1 {
-      font-size: 68px;
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .red { color: #dc2626; }
-    .green { color: #16a34a; }
-    .black { color: #111111; }
-
-    .subtitle {
-      font-size: 21px;
-      color: #4b5563;
-      max-width: 850px;
-      margin: 0 auto 35px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 35px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 15px 28px;
-      border-radius: 14px;
-      font-weight: 800;
-      transition: 0.3s ease;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    .btn-red {
-      background: linear-gradient(135deg, #dc2626, #b91c1c);
-      color: white;
-    }
-
-    .btn-red:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(220, 38, 38, 0.25);
-    }
-
-    .btn-green {
-      border: 2px solid #16a34a;
-      color: #111;
-      background: white;
-    }
-
-    .btn-green:hover {
-      background: #f0fdf4;
-      transform: translateY(-2px);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 18px;
-      margin-top: 15px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 22px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      transition: 0.3s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .stat-card h3 {
-      font-size: 30px;
-      margin-bottom: 6px;
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 35px;
-      font-weight: 900;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 22px;
-      padding: 28px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-      transition: 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.09);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .card p, .card li {
-      color: #4b5563;
-      line-height: 1.7;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    /* BENEFICIOS */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .benefit-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: 0.3s;
-      text-align: center;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .benefit-card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .benefit-card p {
-      color: #4b5563;
-      line-height: 1.6;
-    }
-
-    /* STAFF */
-    .staff-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .staff-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 22px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: 0.3s;
-    }
-
-    .staff-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .staff-avatar {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: 900;
-      color: white;
-      background: linear-gradient(135deg, #dc2626, #16a34a);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-    }
-
-    .staff-card h4 {
-      font-size: 20px;
-      margin-bottom: 6px;
-      color: #111;
-    }
-
-    .staff-card p {
-      color: #6b7280;
-      font-weight: 700;
-    }
-
-    /* GALERÍA */
-    #galeria .gallery-brand {
-      margin-bottom: 40px;
-      background: linear-gradient(145deg, #ffffff, #f8fafc);
-      padding: 26px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(22, 163, 74, 0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #galeria .gallery-brand::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 8px;
-      height: 100%;
-      background: linear-gradient(to bottom, #c1121f, #16a34a);
-    }
-
-    #galeria .gallery-brand h3 {
-      color: #c1121f;
-      margin-bottom: 16px;
-      padding-left: 16px;
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 10px;
-    }
-
-    #galeria .bus-list {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-top: 18px;
-    }
-
-    #galeria .bus-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-      border: 2px solid transparent;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    }
-
-    #galeria .bus-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-      border-color: rgba(22, 163, 74, 0.35);
-    }
-
-    #galeria .bus-item img {
-  width: 100%;
-  max-width: 800px;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 15px auto;
-  background: #ffffff;
-  padding: 6px;
-  border-radius: 12px;
-  box-sizing: border-box;
-  border: 2px solid #ddd;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-
-     #galeria .bus-item p {
-    font-family: 'Poppins', sans-serif; /* Fuente llamativa */
-    font-size: 1.2rem;       /* texto más grande */
-    text-align: center;      /* centrado horizontal */
-    display: flex;
-    align-items: center;     /* centrado vertical */
-    justify-content: center; /* centrado horizontal */
-    padding-left: 15px;      /* espacio entre imagen y texto */
-    padding-right: 15px;
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(220,38,38,0.06), rgba(22,163,74,0.06));
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-    }
-
-    .highlight-box p {
-      font-size: 20px;
-      color: #374151;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      border-top: 1px solid #e5e7eb;
-      color: #6b7280;
-      background: #ffffff;
-    }
-
-    @media (max-width: 768px) {
-      .nav {
-        justify-content: center;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      .subtitle {
-        font-size: 17px;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .logo-main {
-        width: 100%;
-        padding: 14px;
-      }
-
-      #galeria .bus-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      #galeria .bus-item img {
-        width: 100%;
-        max-width: 260px;
-        min-width: auto;
-        height: auto;
-        max-height: none;
-        min-height: auto;
-      }
-
-      #galeria .bus-item p {
-        text-align: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>América Express [AEX] - Reclutamiento</title>
+
+<style>
+  /* RESET BÁSICO */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; scroll-behavior: smooth; }
+  body { background: #f8fafc; color: #111; line-height: 1.6; }
+
+  .container { width: 95%; max-width: 1600px; margin: auto; }
+
+  /* TOPBAR */
+  .topbar { position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #e5e7eb; z-index: 1000; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo { width: 56px; height: 56px; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .brand-logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+  .brand-text h3 { font-size: 18px; font-weight: 900; }
+  .brand-text p { font-size: 12px; color: #6b7280; }
+  .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .nav-links a { text-decoration: none; color: #374151; font-weight: 700; font-size: 14px; transition: 0.3s; }
+  .nav-links a:hover { color: #dc2626; }
+
+  /* HERO */
+  .hero { text-align: center; padding: 70px 0 50px; position: relative; overflow: hidden; }
+  .logo-main { width: 420px; max-width: 100%; margin: 0 auto 25px; border-radius: 28px; background: #fff; border: 6px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,0.1); animation: float 3.5s ease-in-out infinite; padding: 20px; }
+  .logo-main img { width: 100%; height: auto; object-fit: contain; display: block; }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+  .hero h1 { font-size: 68px; font-weight: 900; margin-bottom: 18px; }
+  .red { color: #dc2626; } .green { color: #16a34a; } .black { color: #111; }
+  .subtitle { font-size: 21px; color: #4b5563; max-width: 850px; margin: 0 auto 35px; }
+  .buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 35px; }
+  .btn { display: inline-block; text-decoration: none; padding: 15px 28px; border-radius: 14px; font-weight: 800; transition: 0.3s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+  .btn-red { background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; }
+  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(220,38,38,0.25); }
+  .btn-green { border: 2px solid #16a34a; color: #111; background: white; }
+  .btn-green:hover { background: #f0fdf4; transform: translateY(-2px); }
+
+  /* ACERCA DE NOSOTROS */
+  #acerca { padding: 80px 0; }
+  .about-flex { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .about-text { flex: 1; }
+  .about-text p { font-size: 18px; margin-bottom: 15px; color: #4b5563; }
+  .about-slider { flex: 1; position: relative; overflow: hidden; border-radius: 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
+  .about-slider .slides { display: flex; width: 400%; animation: slide 12s infinite; }
+  .about-slider img { width: 25%; object-fit: cover; border-radius: 18px; height: 250px; }
+  @keyframes slide { 0%,20%{transform:translateX(0%);} 25%,45%{transform:translateX(-25%);} 50%,70%{transform:translateX(-50%);} 75%,95%{transform:translateX(-75%);} 100%{transform:translateX(0%);} }
+
+  /* STAFF MODERNO */
+  #staff { padding: 80px 0; }
+  .staff-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; }
+  .staff-card { background: #fff; border-radius: 22px; padding: 24px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
+  .staff-card:hover { transform: translateY(-5px); }
+  .staff-avatar { width: 72px; height: 72px; margin: 0 auto 15px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:900; color:white; background: linear-gradient(135deg,#dc2626,#16a34a); box-shadow:0 8px 18px rgba(0,0,0,0.08);}
+  .staff-card h4 { font-size: 20px; margin-bottom: 6px; color:#111; }
+  .staff-card p { color:#6b7280; font-weight:700; }
+
+  /* GALERÍA DE BUSES */
+  #galeria { padding: 80px 0; }
+  .gallery-brand { margin-bottom: 40px; background: linear-gradient(145deg,#fff,#f8fafc); padding: 26px; border-radius:24px; box-shadow:0 10px 30px rgba(0,0,0,0.08); border:1px solid rgba(22,163,74,0.12); overflow:hidden; }
+  .gallery-brand h3 { color:#dc2626; margin-bottom:16px; font-size:1.5rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; border-bottom:2px solid #eef2f7; padding-bottom:10px; }
+  .bus-list { display: flex; flex-wrap: wrap; gap:16px; justify-content:center; }
+  .bus-item { flex: 1 1 300px; display:flex; flex-direction:column; align-items:center; gap:12px; background: rgba(255,255,255,0.95); border-radius:18px; padding:12px; box-shadow:0 10px 22px rgba(0,0,0,0.08); transition:0.3s; }
+  .bus-item img { width: 100%; border-radius:12px; height: 220px; object-fit: cover; }
+  .bus-item p { font-size:18px; font-weight:700; text-align:center; color:#111827; }
+
+  /* RECLUTAMIENTO */
+  #reclutamiento { padding:80px 0; }
+  .highlight-box { background: linear-gradient(135deg, rgba(220,38,38,0.06), rgba(22,163,74,0.06)); border-radius:24px; padding:35px; text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.05); }
+  .highlight-box p { font-size:20px; color:#374151; margin-bottom:20px; }
+  .highlight-box .buttons { margin-bottom:0; }
+
+  /* FOOTER */
+  footer { text-align:center; padding:35px 20px; border-top:1px solid #e5e7eb; color:#6b7280; background:#ffffff; }
+
+  /* RESPONSIVO */
+  @media(max-width:1024px){.about-flex{flex-direction:column;}.about-slider img{width:100%;height:auto;}}
+  @media(max-width:768px){.hero h1{font-size:42px;}.subtitle{font-size:17px;}.about-text p{font-size:16px;}}
+</style>
 </head>
 <body>
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container">
       <div class="nav">
         <div class="brand">
-          <div class="brand-logo">
-            <img src="logo-america.png" alt="Logo América Express">
-          </div>
-          <div class="brand-text">
-            <h3>AMÉRICA EXPRESS</h3>
-            <p>AEX • ETS2 Virtual Company</p>
-          </div>
+          <div class="brand-logo"><img src="logo-america.png" alt="Logo América Express"></div>
+          <div class="brand-text"><h3>AMÉRICA EXPRESS</h3><p>AEX • ETS2 Virtual Company</p></div>
         </div>
-
         <div class="nav-links">
-          <a href="#beneficios">Beneficios</a>
+          <a href="#acerca">Acerca de Nosotros</a>
           <a href="#staff">Staff</a>
           <a href="#galeria">Galería de Buses</a>
-          <a href="#requisitos">Requisitos</a>
           <a href="#reclutamiento">Reclutamiento</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="badge">🚛 Reclutamiento abierto para conductores de ETS2 • América Express [AEX]</div>
-
-      <div class="logo-main">
-        <img src="logo-america.png" alt="Logo América Express">
-      </div>
-
-      <h1>
-        <span class="red">AMÉRICA</span><br>
-        <span class="black">EXPRESS</span><br>
-        <span class="green">[AEX]</span>
-      </h1>
-
-      <p class="subtitle">
-        Empresa virtual de <strong>Euro Truck Simulator 2</strong> diseñada para conductores que buscan
-        <strong>disciplina, compañerismo y actividad</strong> en cada ruta.
-        Si quieres formar parte de una VTC con estilo y compromiso, <strong>América Express</strong> te está esperando.
-      </p>
-
+      <div class="logo-main"><img src="logo-america.png" alt="Logo América Express"></div>
+      <h1><span class="red">AMÉRICA</span><br><span class="black">EXPRESS</span><br><span class="green">[AEX]</span></h1>
+      <p class="subtitle">Empresa virtual de <strong>Euro Truck Simulator 2</strong> que ofrece disciplina, compañerismo y profesionalismo. Únete y conduce con estilo.</p>
       <div class="buttons">
         <a href="#reclutamiento" class="btn btn-red">Entrar al Reclutamiento</a>
         <a href="#staff" class="btn btn-green">Ver Staff</a>
       </div>
+    </div>
+  </section>
 
-      <div class="stats">
-        <div class="stat-card">
-          <h3 class="black">+20</h3>
-          <p>Conductores</p>
-        </div>
-        <div class="stat-card">
-          <h3 class="red">AEX</h3>
-          <p>Comunidad</p>
-        </div>
-        <div class="stat-card">
-          <h3 class="green">24/7</h3>
-          <p>Actividad</p>
-        </div>
-        <div class="stat-card">
-          <h3 class="black">PRO</h3>
-          <p>Presencia</p>
+  <!-- ACERCA DE NOSOTROS -->
+  <section id="acerca">
+    <div class="container about-flex">
+      <div class="about-text">
+        <h2 class="section-title"><span class="green">Acerca</span> <span class="black">de Nosotros</span></h2>
+        <p>América Express [AEX] es una empresa virtual de Euro Truck Simulator 2 dedicada a brindar <strong>disciplina, compañerismo y profesionalismo</strong> a todos nuestros conductores.</p>
+        <p>Únete a nosotros y sé parte de una VTC con estilo, eventos constantes y un ambiente de trabajo amigable.</p>
+      </div>
+      <div class="about-slider">
+        <div class="slides">
+          <img src="office1.jpg" alt="Oficina América Express">
+          <img src="office2.jpg" alt="Conductores en ruta">
+          <img src="bus1.jpg" alt="Bus América Express">
+          <img src="bus2.jpg" alt="Bus en carretera">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="beneficios">
+  <!-- STAFF -->
+  <section id="staff">
     <div class="container">
-      <h2 class="section-title"><span class="green">Beneficios</span> <span class="black">de unirte</span></h2>
-
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <h3>🚛 Convoys</h3>
-          <p>Participa en rutas grupales, eventos y actividades organizadas dentro de la empresa.</p>
+      <h2 class="section-title"><span class="red">Nuestro</span> <span class="black">Staff</span></h2>
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">K</div>
+          <h4>CEO</h4>
+          <p>KEVIN</p>
         </div>
-
-        <div class="benefit-card">
-          <h3>🤝 Compañerismo</h3>
-          <p>Forma parte de una comunidad activa con respeto, apoyo y buen ambiente para todos.</p>
+        <div class="staff-card">
+          <div class="staff-avatar">S</div>
+          <h4>LÍDER</h4>
+          <p>SUIGETZUU</p>
         </div>
-
-        <div class="benefit-card">
-          <h3>📈 Progreso</h3>
-          <p>Crece dentro de la empresa con actividad, constancia y compromiso en cada viaje.</p>
-        </div>
-
-        <div class="benefit-card">
-          <h3>🎨 Estilo AEX</h3>
-          <p>Disfruta de una identidad visual única, buses personalizados y presencia profesional.</p>
+        <div class="staff-card">
+          <div class="staff-avatar">F</div>
+          <h4>COLÍDER</h4>
+          <p>FRANCO</p>
         </div>
       </div>
     </div>
   </section>
 
- <section id="staff">
-  <div class="container">
-    <h2 class="section-title"><span class="red">Nuestro</span> <span class="black">Staff</span></h2>
-
-    <div class="staff-grid">
-      <!-- CEO -->
-      <div class="staff-card">
-        <div class="staff-avatar">K</div>
-        <h4>CEO</h4>
-        <p>Kevin</p>
-      </div>
-
-      <!-- LIDER -->
-      <div class="staff-card">
-        <div class="staff-avatar">S</div>
-        <h4>Líder</h4>
-        <p>Suigetzuu</p>
-      </div>
-
-      <!-- COLIDER -->
-      <div class="staff-card">
-        <div class="staff-avatar">F</div>
-        <h4>Co-líder</h4>
-        <p>Franco</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+  <!-- GALERÍA DE BUSES -->
   <section id="galeria">
     <div class="container">
-      <h2 class="section-title">
-        <span class="red">Galería de</span> <span class="green">Buses</span>
-      </h2>
+      <h2 class="section-title"><span class="red">Galería de</span> <span class="green">Buses</span></h2>
 
-      <!-- BUSSCAR -->
       <div class="gallery-brand">
         <h3>BUSSCAR</h3>
         <div class="bus-list">
-
-          <div class="bus-item">
-            <img src="busscar1.jpg" alt="Busscar DD 8x2 Mercedes Vista Bus">
-            <p>Busscar DD 8x2 Mercedes Vista Bus</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="busscar2.jpg" alt="Panorámico DD 6x2 Scania">
-            <p>Panorámico DD 6x2 Scania</p>
-          </div>
-
+          <div class="bus-item"><img src="busscar1.jpg" alt="Busscar DD 8x2 Mercedes Vista Bus"><p>Busscar DD 8x2 Mercedes Vista Bus</p></div>
+          <div class="bus-item"><img src="busscar2.jpg" alt="Panorámico DD 6x2 Scania"><p>Panorámico DD 6x2 Scania</p></div>
         </div>
       </div>
 
-      <!-- COMIL -->
       <div class="gallery-brand">
         <h3>COMIL</h3>
         <div class="bus-list">
-
-          <div class="bus-item">
-            <img src="comil1.jpg" alt="Comil Invictus DD Volvo">
-            <p>Comil Invictus DD Volvo</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="comil2.jpg" alt="Comil Invictus DD 2023 6x2 15m Mercedes">
-            <p>Comil Invictus DD 2023 6x2 15m Mercedes</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="comil3.jpg" alt="Comil Invictus HD 6x2 Scania">
-            <p>Comil Invictus HD 6x2 Scania</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="comil4.jpg" alt="Comil Invictus DD 2023 8x2 15m Mercedes">
-            <p>Comil Invictus DD 2023 8x2 15m Mercedes</p>
-          </div>
-
+          <div class="bus-item"><img src="comil1.jpg" alt="Comil Invictus DD Volvo"><p>Comil Invictus DD Volvo</p></div>
+          <div class="bus-item"><img src="comil2.jpg" alt="Comil Invictus DD 2023 6x2 15m Mercedes"><p>Comil Invictus DD 2023 6x2 15m Mercedes</p></div>
         </div>
-      </div>
-
-      <!-- IRIZAR -->
-      <div class="gallery-brand">
-        <h3>IRIZAR</h3>
-        <div class="bus-list">
-
-          <div class="bus-item">
-            <img src="irizar1.jpg" alt="Irizar i6s 6x2 Scania">
-            <p>Irizar i6s 6x2 Scania</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- MARCOPOLO -->
-      <div class="gallery-brand">
-        <h3>MARCOPOLO</h3>
-        <div class="bus-list">
-
-          <div class="bus-item">
-            <img src="marcopolo1.jpg" alt="Marcopolo Paradiso 1600 LD">
-            <p>Marcopolo Paradiso 1600 LD</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="marcopolo2.jpg" alt="Marcopolo G7 1600 6x2 Mercedes">
-            <p>Marcopolo G7 1600 6x2 Mercedes</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="marcopolo3.jpg" alt="Marcopolo G8 1800 DD Scania">
-            <p>Marcopolo G8 1800 DD Scania</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="marcopolo4.jpg" alt="Marcopolo G7 1800 DD 8x2">
-            <p>Marcopolo G7 1800 DD 8x2</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="marcopolo5.jpg" alt="Paradiso G7 1800 DD 15m">
-            <p>Paradiso G7 1800 DD 15m</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="marcopolo6.jpg" alt="Marcopolo G6 1800 DD 6x2 Scania">
-            <p>Marcopolo G6 1800 DD 6x2 Scania</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="marcopolo7.jpg" alt="Paradiso NEW G7 1800 DD">
-            <p>Paradiso NEW G7 1800 DD</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- MODASA -->
-      <div class="gallery-brand">
-        <h3>MODASA</h3>
-        <div class="bus-list">
-
-          <div class="bus-item">
-            <img src="modasa1.jpg" alt="Modasa Zeus 3">
-            <p>Modasa Zeus 3</p>
-          </div>
-
-          <div class="bus-item">
-            <img src="modasa2.jpg" alt="Modasa Zeus 5 Scania">
-            <p>Modasa Zeus 5 Scania</p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="requisitos">
-    <div class="container">
-      <h2 class="section-title"><span class="black">Requisitos de</span> <span class="red">Reclutamiento</span></h2>
-      <div class="card">
-        <ul>
-          <li>✅ Tener <strong>16 años o más</strong></li>
-          <li>✅ Ser <strong>responsable</strong> y mantener buena conducta</li>
-          <li>✅ Ser <strong>activo</strong> dentro de la empresa</li>
-          <li>✅ Tener <strong>respeto y compañerismo</strong></li>
-          <li>✅ Participar en convoys y actividades cuando sea posible</li>
-          <li>✅ Tener ganas de crecer junto al equipo AEX</li>
-        </ul>
       </div>
     </div>
   </section>
 
+  <!-- RECLUTAMIENTO -->
   <section id="reclutamiento">
     <div class="container">
       <h2 class="section-title"><span class="green">Únete</span> <span class="black">a América Express</span></h2>
       <div class="highlight-box">
-        <p>
-          🚚 <strong>América Express [AEX]</strong> está buscando nuevos conductores para recorrer las carreteras de ETS2.
-          Si quieres pertenecer a una empresa seria, activa y con estilo, este es tu momento.
-        </p>
-        <p>
-          <strong>Escríbeme al privado</strong> para postular y empieza tu camino con nosotros.
-        </p>
-        <div class="buttons" style="margin-bottom: 0;">
+        <p>🚚 <strong>América Express [AEX]</strong> está buscando nuevos conductores para recorrer las carreteras de ETS2. Sé parte de una empresa seria, activa y con estilo.</p>
+        <p><strong>Escríbeme al privado</strong> para postular y empieza tu camino con nosotros.</p>
+        <div class="buttons">
           <a href="#" class="btn btn-red">Contactar por Privado</a>
           <a href="https://discord.gg/ARAV5xQH" target="_blank" class="btn btn-green">Entrar al Discord</a>
         </div>
