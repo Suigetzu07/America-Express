@@ -1,102 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>América Express [AEX] - Reclutamiento</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>América Express [AEX] - Reclutamiento</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', Arial, sans-serif; scroll-behavior: smooth; }
+    body {
+      color:#fff;
+      background: url('fondo-oficina-bus.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    body::before {
+      content:"";
+      position: fixed;
+      inset:0;
+      background: rgba(0,0,0,0.35);
+      z-index: -1;
+    }
+    a { text-decoration:none; }
+    .container { width:90%; max-width:1600px; margin:auto; }
 
-<style>
-   /* RESET BÁSICO */
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; scroll-behavior: smooth; }
-  body { 
-    background: linear-gradient(135deg, #f0f4f8, #e2e8f0); /* fondo degradado */
-    color: #111; 
-    line-height: 1.6; 
-    background-attachment: fixed;
-    background-size: cover;
-  }
+    /* Topbar */
+    .topbar { position: sticky; top:0; z-index:1000; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:16px 0; flex-wrap:wrap; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand-logo { width:56px; height:56px; border-radius:16px; overflow:hidden; border:1px solid #fff; }
+    .brand-logo img { width:100%; height:100%; object-fit:contain; }
+    .brand-text h3 { color:#f9fafb; font-size:18px; font-weight:900; }
+    .brand-text p { color:#e5e7eb; font-size:12px; }
+    .nav-links { display:flex; gap:18px; flex-wrap:wrap; }
+    .nav-links a { color:#f3f4f6; font-weight:700; transition:0.3s; }
+    .nav-links a:hover { color:#facc15; }
 
-  .container { width: 95%; max-width: 1600px; margin: auto; }
+    /* Hero */
+    .hero { padding:80px 0; text-align:center; }
+    .badge { display:inline-block; padding:10px 18px; border-radius:999px; background: rgba(255,255,255,0.15); font-weight:700; margin-bottom:25px; color:#f3f4f6; }
+    .logo-main { width:300px; max-width:100%; margin:0 auto 20px; border-radius:28px; overflow:hidden; border:4px solid rgba(255,255,255,0.2); animation: float 3.5s ease-in-out infinite; }
+    .logo-main img { width:100%; display:block; }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+    h1 { font-size:56px; font-weight:900; margin-bottom:15px; }
+    .red{color:#f87171;} .green{color:#4ade80;} .black{color:#f3f4f6;}
+    .subtitle { font-size:18px; color:#e5e7eb; max-width:850px; margin:0 auto 30px; line-height:1.6; }
+    .buttons { display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
+    .btn { padding:14px 28px; border-radius:12px; font-weight:700; transition:0.3s; }
+    .btn-red { background: #f87171; color:#111; }
+    .btn-red:hover { transform:translateY(-2px); opacity:0.9; }
+    .btn-green { background:#4ade80; color:#111; }
+    .btn-green:hover { transform:translateY(-2px); opacity:0.9; }
 
-  /* TOPBAR */
-  .topbar { position: sticky; top: 0; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #e5e7eb; z-index: 1000; }
-  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; flex-wrap: wrap; }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-logo { width: 56px; height: 56px; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .brand-logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
-  .brand-text h3 { font-size: 18px; font-weight: 900; }
-  .brand-text p { font-size: 12px; color: #6b7280; }
-  .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
-  .nav-links a { text-decoration: none; color: #374151; font-weight: 700; font-size: 14px; transition: 0.3s; }
-  .nav-links a:hover { color: #dc2626; }
+    /* Acerca de Nosotros */
+    #acerca { display:flex; align-items:center; gap:40px; flex-wrap:wrap; padding:70px 0; }
+    #acerca .texto { flex:1; min-width:280px; }
+    #acerca .texto h2 { font-size:36px; margin-bottom:20px; color:#f3f4f6; }
+    #acerca .texto p { font-size:17px; line-height:1.7; color:#e5e7eb; }
+    #acerca .slider { flex:1; min-width:280px; display:flex; gap:15px; overflow-x:auto; scroll-snap-type:x mandatory; }
+    #acerca .slider img { width:220px; height:140px; object-fit:cover; border-radius:16px; flex-shrink:0; scroll-snap-align:center; }
 
-  /* HERO */
-  .hero { text-align: center; padding: 70px 0 50px; position: relative; overflow: hidden; }
-  .logo-main { width: 420px; max-width: 100%; margin: 0 auto 25px; border-radius: 28px; background: #fff; border: 6px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,0.1); animation: float 3.5s ease-in-out infinite; padding: 20px; }
-  .logo-main img { width: 100%; height: auto; object-fit: contain; display: block; }
-  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
-  .hero h1 { font-size: 68px; font-weight: 900; margin-bottom: 18px; }
-  .red { color: #dc2626; } .green { color: #16a34a; } .black { color: #111; }
-  .subtitle { font-size: 21px; color: #4b5563; max-width: 850px; margin: 0 auto 35px; }
-  .buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 35px; }
-  .btn { display: inline-block; text-decoration: none; padding: 15px 28px; border-radius: 14px; font-weight: 800; transition: 0.3s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-  .btn-red { background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; }
-  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(220,38,38,0.25); }
-  .btn-green { border: 2px solid #16a34a; color: #111; background: white; }
-  .btn-green:hover { background: #f0fdf4; transform: translateY(-2px); }
+    /* Staff */
+    #staff { padding:70px 0; text-align:center; }
+    #staff .section-title { font-size:36px; margin-bottom:40px; }
+    .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+    .staff-card { background: rgba(255,255,255,0.1); border-radius:16px; padding:24px; box-shadow:0 10px 25px rgba(0,0,0,0.25); transition:0.3s; }
+    .staff-card:hover { transform:translateY(-5px); }
+    .staff-avatar { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,#f87171,#4ade80); margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:900; color:#fff; }
+    .staff-card h4 { font-size:20px; margin-bottom:6px; }
+    .staff-card p { color:#e5e7eb; font-weight:600; }
 
-  /* ACERCA DE NOSOTROS */
-  #acerca { padding: 80px 0; }
-  .about-flex { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-  .about-text { flex: 1; }
-  .about-text p { font-size: 18px; margin-bottom: 15px; color: #4b5563; }
-  .about-slider { flex: 1; position: relative; overflow: hidden; border-radius: 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
-  .about-slider .slides { display: flex; width: 400%; animation: slide 12s infinite; }
-  .about-slider img { width: 25%; object-fit: cover; border-radius: 18px; height: 250px; }
-  @keyframes slide { 0%,20%{transform:translateX(0%);} 25%,45%{transform:translateX(-25%);} 50%,70%{transform:translateX(-50%);} 75%,95%{transform:translateX(-75%);} 100%{transform:translateX(0%);} }
+    /* Galería */
+    #galeria { padding:70px 0; }
+    #galeria .section-title { font-size:36px; margin-bottom:35px; }
+    .gallery-brand { margin-bottom:40px; }
+    .bus-list { display:flex; flex-wrap:wrap; gap:20px; }
+    .bus-item { flex:1 1 280px; text-align:center; }
+    .bus-item img { width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:10px; }
+    .bus-item p { font-size:16px; font-weight:700; color:#f3f4f6; }
 
-  /* STAFF MODERNO */
-  #staff { padding: 80px 0; }
-  .staff-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; }
-  .staff-card { background: rgba(255,255,255,0.9); border-radius: 22px; padding: 24px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
-  .staff-card:hover { transform: translateY(-5px); }
-  .staff-avatar { width: 72px; height: 72px; margin: 0 auto 15px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:900; color:white; background: linear-gradient(135deg,#dc2626,#16a34a); box-shadow:0 8px 18px rgba(0,0,0,0.08);}
-  .staff-card h4 { font-size: 20px; margin-bottom: 6px; color:#111; }
-  .staff-card p { color:#6b7280; font-weight:700; }
+    /* Reclutamiento */
+    #reclutamiento { padding:70px 0; text-align:center; }
+    .highlight-box { background: rgba(255,255,255,0.1); padding:30px; border-radius:20px; margin-top:20px; box-shadow:0 12px 28px rgba(0,0,0,0.25); }
+    .highlight-box p { margin-bottom:15px; color:#f3f4f6; font-size:17px; }
 
-  /* GALERÍA DE BUSES */
-  #galeria { padding: 80px 0; }
-  .gallery-brand { margin-bottom: 40px; background: rgba(255,255,255,0.85); padding: 26px; border-radius:24px; box-shadow:0 10px 30px rgba(0,0,0,0.08); border:1px solid rgba(22,163,74,0.12); overflow:hidden; }
-  .gallery-brand h3 { color:#dc2626; margin-bottom:16px; font-size:1.5rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; border-bottom:2px solid #eef2f7; padding-bottom:10px; }
-  .bus-list { display: flex; flex-wrap: wrap; gap:16px; justify-content:center; }
-  .bus-item { flex: 1 1 300px; display:flex; flex-direction:column; align-items:center; gap:12px; background: rgba(255,255,255,0.95); border-radius:18px; padding:12px; box-shadow:0 10px 22px rgba(0,0,0,0.08); transition:0.3s; }
-  .bus-item img { width: 100%; border-radius:12px; height: 220px; object-fit: cover; }
-  .bus-item p { font-size:18px; font-weight:700; text-align:center; color:#111827; }
-
-  /* RECLUTAMIENTO */
-  #reclutamiento { padding:80px 0; }
-  .highlight-box { background: rgba(220,38,38,0.06); border-radius:24px; padding:35px; text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.05); }
-  .highlight-box p { font-size:20px; color:#374151; margin-bottom:20px; }
-  .highlight-box .buttons { margin-bottom:0; }
-
-  /* FOOTER */
-  footer { text-align:center; padding:35px 20px; border-top:1px solid #e5e7eb; color:#6b7280; background: rgba(255,255,255,0.85); }
-
-  /* RESPONSIVO */
-  @media(max-width:1024px){.about-flex{flex-direction:column;}.about-slider img{width:100%;height:auto;}}
-  @media(max-width:768px){.hero h1{font-size:42px;}.subtitle{font-size:17px;}.about-text p{font-size:16px;}}
-</style>
-</style>
+    footer { text-align:center; padding:35px 20px; border-top:1px solid rgba(255,255,255,0.2); color:#e5e7eb; }
+    
+    @media(max-width:768px){
+      h1{font-size:36px;}
+      .subtitle{font-size:16px;}
+      #acerca{flex-direction:column;}
+      #acerca .slider img{width:100%; height:180px;}
+    }
+  </style>
 </head>
 <body>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container">
       <div class="nav">
         <div class="brand">
-          <div class="brand-logo"><img src="logo-america.png" alt="Logo América Express"></div>
-          <div class="brand-text"><h3>AMÉRICA EXPRESS</h3><p>AEX • ETS2 Virtual Company</p></div>
+          <div class="brand-logo">
+            <img src="logo-america.png" alt="Logo América Express">
+          </div>
+          <div class="brand-text">
+            <h3>AMÉRICA EXPRESS</h3>
+            <p>AEX • ETS2 Virtual Company</p>
+          </div>
         </div>
         <div class="nav-links">
           <a href="#acerca">Acerca de Nosotros</a>
@@ -108,93 +116,87 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="logo-main"><img src="logo-america.png" alt="Logo América Express"></div>
-      <h1><span class="red">AMÉRICA</span><br><span class="black">EXPRESS</span><br><span class="green">[AEX]</span></h1>
-      <p class="subtitle">Empresa virtual de <strong>Euro Truck Simulator 2</strong> que ofrece disciplina, compañerismo y profesionalismo. Únete y conduce con estilo.</p>
+      <div class="badge">🚛 Reclutamiento abierto • América Express [AEX]</div>
+      <div class="logo-main">
+        <img src="logo-america.png" alt="Logo América Express">
+      </div>
+      <h1><span class="red">AMÉRICA</span> <span class="black">EXPRESS</span> <span class="green">[AEX]</span></h1>
+      <p class="subtitle">Empresa virtual de Euro Truck Simulator 2 para conductores que buscan disciplina, compañerismo y actividad en cada ruta.</p>
       <div class="buttons">
-        <a href="#reclutamiento" class="btn btn-red">Entrar al Reclutamiento</a>
+        <a href="#reclutamiento" class="btn btn-red">Únete Ahora</a>
         <a href="#staff" class="btn btn-green">Ver Staff</a>
       </div>
     </div>
   </section>
 
-  <!-- ACERCA DE NOSOTROS -->
   <section id="acerca">
-    <div class="container about-flex">
-      <div class="about-text">
-        <h2 class="section-title"><span class="green">Acerca</span> <span class="black">de Nosotros</span></h2>
-        <p>América Express [AEX] es una empresa virtual de Euro Truck Simulator 2 dedicada a brindar <strong>disciplina, compañerismo y profesionalismo</strong> a todos nuestros conductores.</p>
-        <p>Únete a nosotros y sé parte de una VTC con estilo, eventos constantes y un ambiente de trabajo amigable.</p>
+    <div class="container">
+      <div class="texto">
+        <h2>Acerca de Nosotros</h2>
+        <p>América Express es una VTC de ETS2 enfocada en profesionalismo, diversión y comunidad. Nuestro objetivo es ofrecer rutas organizadas, eventos y un ambiente amigable para todos los conductores.</p>
       </div>
-      <div class="about-slider">
-        <div class="slides">
-          <img src="office1.jpg" alt="Oficina América Express">
-          <img src="office2.jpg" alt="Conductores en ruta">
-          <img src="bus1.jpg" alt="Bus América Express">
-          <img src="bus2.jpg" alt="Bus en carretera">
-        </div>
+      <div class="slider">
+        <img src="oficina1.jpg" alt="Oficina">
+        <img src="bus1.jpg" alt="Bus América Express">
+        <img src="oficina2.jpg" alt="Oficina">
       </div>
     </div>
   </section>
 
-  <!-- STAFF -->
   <section id="staff">
     <div class="container">
-      <h2 class="section-title"><span class="red">Nuestro</span> <span class="black">Staff</span></h2>
+      <h2 class="section-title">Nuestro Staff</h2>
       <div class="staff-grid">
         <div class="staff-card">
           <div class="staff-avatar">K</div>
           <h4>CEO</h4>
-          <p>KEVIN</p>
+          <p>Kevin</p>
         </div>
         <div class="staff-card">
           <div class="staff-avatar">S</div>
           <h4>LÍDER</h4>
-          <p>SUIGETZUU</p>
+          <p>Suigetzuu</p>
         </div>
         <div class="staff-card">
           <div class="staff-avatar">F</div>
           <h4>COLÍDER</h4>
-          <p>FRANCO</p>
+          <p>Franco</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALERÍA DE BUSES -->
   <section id="galeria">
     <div class="container">
-      <h2 class="section-title"><span class="red">Galería de</span> <span class="green">Buses</span></h2>
-
+      <h2 class="section-title">Galería de Buses</h2>
       <div class="gallery-brand">
-        <h3>BUSSCAR</h3>
         <div class="bus-list">
-          <div class="bus-item"><img src="busscar1.jpg" alt="Busscar DD 8x2 Mercedes Vista Bus"><p>Busscar DD 8x2 Mercedes Vista Bus</p></div>
-          <div class="bus-item"><img src="busscar2.jpg" alt="Panorámico DD 6x2 Scania"><p>Panorámico DD 6x2 Scania</p></div>
-        </div>
-      </div>
-
-      <div class="gallery-brand">
-        <h3>COMIL</h3>
-        <div class="bus-list">
-          <div class="bus-item"><img src="comil1.jpg" alt="Comil Invictus DD Volvo"><p>Comil Invictus DD Volvo</p></div>
-          <div class="bus-item"><img src="comil2.jpg" alt="Comil Invictus DD 2023 6x2 15m Mercedes"><p>Comil Invictus DD 2023 6x2 15m Mercedes</p></div>
+          <div class="bus-item">
+            <img src="busscar1.jpg" alt="Busscar DD 8x2 Mercedes Vista Bus">
+            <p>Busscar DD 8x2 Mercedes Vista Bus</p>
+          </div>
+          <div class="bus-item">
+            <img src="comil1.jpg" alt="Comil Invictus DD Volvo">
+            <p>Comil Invictus DD Volvo</p>
+          </div>
+          <div class="bus-item">
+            <img src="marcopolo1.jpg" alt="Marcopolo Paradiso 1600 LD">
+            <p>Marcopolo Paradiso 1600 LD</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RECLUTAMIENTO -->
   <section id="reclutamiento">
     <div class="container">
-      <h2 class="section-title"><span class="green">Únete</span> <span class="black">a América Express</span></h2>
+      <h2 class="section-title">Únete a América Express</h2>
       <div class="highlight-box">
-        <p>🚚 <strong>América Express [AEX]</strong> está buscando nuevos conductores para recorrer las carreteras de ETS2. Sé parte de una empresa seria, activa y con estilo.</p>
+        <p>🚚 América Express [AEX] busca nuevos conductores activos y comprometidos con nuestra comunidad.</p>
         <p><strong>Escríbeme al privado</strong> para postular y empieza tu camino con nosotros.</p>
-        <div class="buttons">
+        <div class="buttons" style="justify-content:center;">
           <a href="#" class="btn btn-red">Contactar por Privado</a>
           <a href="https://discord.gg/ARAV5xQH" target="_blank" class="btn btn-green">Entrar al Discord</a>
         </div>
