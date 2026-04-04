@@ -32,26 +32,50 @@ body::before {
 /* CONTENEDORES */
 .container { width: 95%; max-width: 1600px; margin: auto; }
 
-/* TOPBAR */
 .topbar {
   position: sticky;
   top: 0;
-  background: rgba(0,0,0,0.75); /* barra oscura semitransparente */
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.2);
   z-index: 1000;
+  background: rgba(0,0,0,0.7); /* fondo semitransparente para contraste */
+  height: 80px; /* altura fija */
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 0 20px;
+}
+
+/* LOGO Y TEXTO */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.brand-text h3, .brand-text p {
+  color: #ffffff;
 }
 
 .nav-links a {
-  color: #ffffff; /* letras blancas para resaltar */
-  font-weight: 700;
-  font-size: 14px;
-  transition: 0.3s;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-.nav-links a:hover {
-  color: #dc2626; /* rojo en hover */
+  color: #ffffff;
 }
 
 /* HERO */
