@@ -28,8 +28,50 @@ body{overflow-x:hidden;color:#fff}
 }
 @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 
+/* TOPBAR */
+.topbar{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ background:rgba(0,0,0,0.6);
+ backdrop-filter:blur(10px);
+ z-index:9999;
+ border-bottom:2px solid #16a34a;
+}
+.nav{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:10px 20px;
+}
+.brand{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+.brand img{width:40px}
+.nav-links{
+ display:flex;
+ gap:15px;
+}
+.nav-links a{
+ color:#fff;
+ text-decoration:none;
+ font-weight:600;
+ transition:0.3s;
+}
+.nav-links a:hover{
+ color:#16a34a;
+}
+
 /* SCROLL */
-main{scroll-snap-type:y mandatory;height:100vh;overflow-y:scroll}
+main{
+ scroll-snap-type:y mandatory;
+ height:100vh;
+ overflow-y:scroll;
+ margin-top:70px;
+}
 section{
  height:100vh;
  scroll-snap-align:start;
@@ -40,23 +82,23 @@ section{
  overflow:hidden;
 }
 
-/* PARALLAX */
+/* FONDO */
 .bg{
  position:absolute;
  inset:0;
- background:#333; /* fallback */
+ background:#333;
  background-size:cover;
  background-position:center;
  transform:scale(1.2);
  transition:transform 6s ease;
 }
-section.active .bg{transform:scale(1)}
 
 /* OVERLAY */
 .overlay{
  position:absolute;
  inset:0;
  background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3));
+ pointer-events:none;
 }
 
 /* CONTENIDO */
@@ -65,46 +107,11 @@ section.active .bg{transform:scale(1)}
  z-index:2;
  text-align:center;
  max-width:900px;
- opacity:1;
- transform:translateY(0);
- transition:1s;
-}
-section.active .content{
- transform:translateY(-10px);
 }
 
 h1{font-size:50px;text-shadow:0 5px 20px #000}
 h2{font-size:38px;color:#16a34a}
 p{color:#e5e7eb;margin:15px 0}
-
-/* BOTON */
-.btn{
- padding:12px 25px;
- border-radius:10px;
- text-decoration:none;
- font-weight:700;
-}
-.btn-red{background:#dc2626;color:#fff}
-
-/* NAV */
-.topbar{
- position:fixed;
- top:0;
- width:100%;
- background:rgba(0,0,0,0.6);
- backdrop-filter:blur(10px);
- z-index:1000;
- border-bottom:2px solid #16a34a;
-}
-.nav{
- display:flex;
- justify-content:space-between;
- padding:10px 20px;
-}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:40px}
-.nav-links{display:flex;gap:15px}
-.nav-links a{color:#fff;text-decoration:none}
 
 /* DESTINOS */
 .destinos-grid{
@@ -118,14 +125,13 @@ p{color:#e5e7eb;margin:15px 0}
  border-radius:12px;
  overflow:hidden;
  cursor:pointer;
- transition:0.3s;
+ z-index:10;
 }
 .destino-card img{
  width:100%;
  height:120px;
  object-fit:cover;
  filter:brightness(0.7);
- transition:0.3s;
 }
 .destino-card span{
  position:absolute;
@@ -133,11 +139,6 @@ p{color:#e5e7eb;margin:15px 0}
  left:10px;
  color:#fff;
  font-weight:700;
- font-size:14px;
-}
-.destino-card:hover img{
- transform:scale(1.1);
- filter:brightness(1);
 }
 
 /* MODAL DESTINO */
@@ -148,7 +149,7 @@ p{color:#e5e7eb;margin:15px 0}
  display:none;
  align-items:center;
  justify-content:center;
- z-index:4000;
+ z-index:9999;
 }
 .destino-box{
  background:#fff;
@@ -162,7 +163,6 @@ p{color:#e5e7eb;margin:15px 0}
  width:100%;
  height:200px;
  object-fit:cover;
- background:#ccc;
 }
 .destino-box .info{
  padding:15px;
@@ -170,12 +170,21 @@ p{color:#e5e7eb;margin:15px 0}
 }
 .cerrar{
  margin-top:10px;
- display:inline-block;
  background:#16a34a;
  color:#fff;
  padding:8px 15px;
  border-radius:8px;
  cursor:pointer;
+}
+
+/* BOTON */
+.btn{
+ padding:12px 25px;
+ border-radius:10px;
+ background:#dc2626;
+ color:#fff;
+ text-decoration:none;
+ font-weight:700;
 }
 
 /* MODAL AVISO */
@@ -216,7 +225,7 @@ p{color:#e5e7eb;margin:15px 0}
   <div>Cargando AEX...</div>
 </div>
 
-<!-- MODAL -->
+<!-- AVISO -->
 <input type="checkbox" id="modal-toggle" class="modal-checkbox">
 <div class="modal">
   <div class="modal-content">
@@ -226,7 +235,7 @@ p{color:#e5e7eb;margin:15px 0}
   </div>
 </div>
 
-<!-- NAV -->
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="nav">
     <div class="brand">
@@ -244,45 +253,47 @@ p{color:#e5e7eb;margin:15px 0}
 
 <main>
 
+<!-- HERO -->
 <section id="hero">
 <div class="bg" style="background-image:url('bus1.jpg')"></div>
 <div class="overlay"></div>
 <div class="content">
 <h1>América Express [AEX]</h1>
-<p>Empresa virtual profesional de ETS2 Perú</p>
+<p>Empresa virtual de ETS2 Perú</p>
 </div>
 </section>
 
+<!-- ACERCA -->
 <section id="acerca">
 <div class="bg" style="background-image:url('office1.jpg')"></div>
 <div class="overlay"></div>
 <div class="content">
 <h2>Acerca de Nosotros</h2>
-<p>Empresa enfocada en profesionalismo, disciplina y comunidad.</p>
+<p>Somos una empresa virtual enfocada en disciplina, profesionalismo y comunidad.</p>
 </div>
 </section>
 
+<!-- DESTINOS -->
 <section id="rutas">
 <div class="bg" style="background-image:url('bus2.jpg')"></div>
 <div class="overlay"></div>
 
 <div class="content">
 <h2>Rutas y Destinos</h2>
-<p>Lima - Cusco - Arequipa</p>
 
 <div class="destinos-grid">
   <div class="destino-card" onclick="abrirDestino('lima')">
-    <img src="lima.jpg" onerror="this.style.display='none'">
+    <img src="lima.jpg">
     <span>Lima</span>
   </div>
 
   <div class="destino-card" onclick="abrirDestino('cusco')">
-    <img src="cusco.jpg" onerror="this.style.display='none'">
+    <img src="cusco.jpg">
     <span>Cusco</span>
   </div>
 
   <div class="destino-card" onclick="abrirDestino('arequipa')">
-    <img src="arequipa.jpg" onerror="this.style.display='none'">
+    <img src="arequipa.jpg">
     <span>Arequipa</span>
   </div>
 </div>
@@ -290,12 +301,14 @@ p{color:#e5e7eb;margin:15px 0}
 </div>
 </section>
 
+<!-- RECLUTAMIENTO -->
 <section id="reclutamiento">
 <div class="bg" style="background-image:url('bus3.jpg')"></div>
 <div class="overlay"></div>
 <div class="content">
 <h2>Reclutamiento</h2>
-<p>Únete a nuestra empresa</p>
+<p>Únete a nuestra empresa y forma parte de AEX</p>
+<a href="#" class="btn">Postular</a>
 </div>
 </section>
 
@@ -314,20 +327,10 @@ p{color:#e5e7eb;margin:15px 0}
 </div>
 
 <script>
-// LOADER FIX
+// LOADER
 document.addEventListener("DOMContentLoaded", function(){
- setTimeout(()=>{
-   document.getElementById("loader").style.display="none";
- },1200);
+ setTimeout(()=>{document.getElementById("loader").style.display="none";},1200);
 });
-
-// MODAL
-if(localStorage.getItem("avisoAceptado")){
- document.getElementById("modal-toggle").checked=true;
-}
-document.querySelector(".btn-accept").onclick=function(){
- localStorage.setItem("avisoAceptado","true");
-}
 
 // DESTINOS
 function abrirDestino(destino){
