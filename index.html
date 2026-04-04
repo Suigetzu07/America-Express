@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>América Express [AEX] - Reclutamiento </title>
+  <title>América Express [AEX] - Reclutamiento</title>
+
   <style>
     * {
       margin: 0;
@@ -28,7 +29,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
     }
@@ -57,7 +58,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       overflow: hidden;
     }
 
@@ -109,9 +110,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 20% 20%, rgba(220,38,38,0.08), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(22,163,74,0.08), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(0,0,0,0.04), transparent 30%);
+        radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.08), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(22, 163, 74, 0.08), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(0, 0, 0, 0.04), transparent 30%);
       pointer-events: none;
     }
 
@@ -123,7 +124,7 @@
       border: 1px solid #e5e7eb;
       font-weight: 700;
       color: #374151;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       margin-bottom: 25px;
       position: relative;
       z-index: 1;
@@ -140,7 +141,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.10);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10);
       position: relative;
       z-index: 1;
       animation: float 3.5s ease-in-out infinite;
@@ -200,7 +201,7 @@
       border-radius: 14px;
       font-weight: 800;
       transition: 0.3s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
     .btn-red {
@@ -210,7 +211,7 @@
 
     .btn-red:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(220,38,38,0.25);
+      box-shadow: 0 14px 30px rgba(220, 38, 38, 0.25);
     }
 
     .btn-green {
@@ -234,12 +235,12 @@
     }
 
     .stat-card {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid #e5e7eb;
       border-radius: 18px;
       padding: 22px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
       transition: 0.3s;
     }
 
@@ -270,17 +271,17 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 22px;
       padding: 28px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
       transition: 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(0,0,0,0.09);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.09);
     }
 
     .card h3 {
@@ -297,6 +298,38 @@
       padding-left: 20px;
     }
 
+    /* BENEFICIOS */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .benefit-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    /* STAFF */
     .staff-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -343,38 +376,90 @@
       font-weight: 700;
     }
 
-    .gallery-brand {
-      margin-bottom: 28px;
+    /* GALERÍA */
+    #galeria .gallery-brand {
+      margin-bottom: 40px;
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      padding: 26px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.12);
+      position: relative;
+      overflow: hidden;
     }
 
-    .gallery-brand h3 {
-      font-size: 28px;
+    #galeria .gallery-brand::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, #c1121f, #16a34a);
+    }
+
+    #galeria .gallery-brand h3 {
+      color: #c1121f;
       margin-bottom: 16px;
-      color: #111;
-      border-left: 6px solid #16a34a;
-      padding-left: 12px;
+      padding-left: 16px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 10px;
     }
 
-    .bus-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    #galeria .bus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    #galeria .bus-item {
+      display: flex;
+      align-items: center;
       gap: 16px;
-    }
-
-    .bus-item {
-      background: #fff;
-      border: 1px solid #e5e7eb;
+      background: #ffffff;
       border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-      font-weight: 700;
-      color: #374151;
-      transition: 0.3s;
+      padding: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+      border: 2px solid transparent;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     }
 
-    .bus-item:hover {
+    #galeria .bus-item:hover {
       transform: translateY(-4px);
-      border-color: #16a34a;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+      border-color: rgba(22, 163, 74, 0.35);
+    }
+
+    #galeria .bus-item img {
+      width: 180px;
+      height: 110px;
+      max-width: 180px;
+      min-width: 180px;
+      max-height: 110px;
+      min-height: 110px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      background: #ffffff;
+      padding: 6px;
+      border-radius: 12px;
+      box-sizing: border-box;
+    }
+
+    #galeria .bus-item p {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.5;
+      text-align: left;
+      flex: 1;
     }
 
     .highlight-box {
@@ -426,169 +511,25 @@
         width: 100%;
         padding: 14px;
       }
-      .bus-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 18px;
-}
 
-.gallery-brand {
-  margin-bottom: 40px;
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
-  padding: 26px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(22, 163, 74, 0.12);
-  position: relative;
-  overflow: hidden;
-}
+      #galeria .bus-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-.gallery-brand::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 100%;
-  background: linear-gradient(to bottom, #c1121f, #16a34a);
-}
+      #galeria .bus-item img {
+        width: 100%;
+        max-width: 260px;
+        min-width: auto;
+        height: auto;
+        max-height: none;
+        min-height: auto;
+      }
 
-.gallery-brand h3 {
-  color: #c1121f;
-  margin-bottom: 16px;
-  padding-left: 16px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 2px solid #eef2f7;
-  padding-bottom: 10px;
-}
-
-.bus-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: #ffffff;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
-  border: 2px solid transparent;
-  padding: 14px;
-}
-
-.bus-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-  border-color: rgba(22, 163, 74, 0.35);
-}
-
-.bus-item img {
-  width: 320px;
-  height: 180px;
-  object-fit: contain;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
-  border-radius: 16px;
-  padding: 10px;
-  box-sizing: border-box;
-  flex-shrink: 0;
-}
-
-.bus-item p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.5;
-  text-align: left;
-  flex: 1;
-}
-      #galeria .gallery-brand {
-  margin-bottom: 40px;
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
-  padding: 26px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(22, 163, 74, 0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-#galeria .gallery-brand::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 100%;
-  background: linear-gradient(to bottom, #c1121f, #16a34a);
-}
-
-#galeria .gallery-brand h3 {
-  color: #c1121f;
-  margin-bottom: 16px;
-  padding-left: 16px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 2px solid #eef2f7;
-  padding-bottom: 10px;
-}
-
-#galeria .bus-list {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 24px;
-  margin-top: 18px;
-}
-
-#galeria .bus-item {
-  display: flex !important;
-  align-items: center !important;
-  gap: 16px;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-  border: 2px solid transparent;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-}
-
-#galeria .bus-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-  border-color: rgba(22, 163, 74, 0.35);
-}
-
-#galeria .bus-item img {
-  width: 180px !important;
-  height: 110px !important;
-  max-width: 180px !important;
-  min-width: 180px !important;
-  max-height: 110px !important;
-  min-height: 110px !important;
-  object-fit: contain !important;
-  display: block !important;
-  flex-shrink: 0 !important;
-  background: #ffffff;
-  padding: 6px;
-  border-radius: 12px;
-  box-sizing: border-box;
-}
-
-#galeria .bus-item p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.5;
-  text-align: left;
-  flex: 1;
-}
+      #galeria .bus-item p {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -634,7 +575,7 @@
 
       <p class="subtitle">
         Empresa virtual de <strong>Euro Truck Simulator 2</strong> diseñada para conductores que buscan
-        <strong>disciplina, compañerismo, actividad</strong> en cada ruta.
+        <strong>disciplina, compañerismo y actividad</strong> en cada ruta.
         Si quieres formar parte de una VTC con estilo y compromiso, <strong>América Express</strong> te está esperando.
       </p>
 
@@ -664,134 +605,194 @@
     </div>
   </section>
 
+  <section id="beneficios">
+    <div class="container">
+      <h2 class="section-title"><span class="green">Beneficios</span> <span class="black">de unirte</span></h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>🚛 Convoys</h3>
+          <p>Participa en rutas grupales, eventos y actividades organizadas dentro de la empresa.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>🤝 Compañerismo</h3>
+          <p>Forma parte de una comunidad activa con respeto, apoyo y buen ambiente para todos.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>📈 Progreso</h3>
+          <p>Crece dentro de la empresa con actividad, constancia y compromiso en cada viaje.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>🎨 Estilo AEX</h3>
+          <p>Disfruta de una identidad visual única, buses personalizados y presencia profesional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="staff">
+    <div class="container">
+      <h2 class="section-title"><span class="red">Nuestro</span> <span class="black">Staff</span></h2>
+
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">G</div>
+          <h4>Gerencia</h4>
+          <p>Dirección General de América Express</p>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">R</div>
+          <h4>Reclutamiento</h4>
+          <p>Encargado de ingreso y evaluación</p>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">C</div>
+          <h4>Coordinación</h4>
+          <p>Organización de convoys y eventos</p>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">S</div>
+          <h4>Soporte</h4>
+          <p>Ayuda para conductores y comunidad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="galeria">
-  <div class="container">
-    <h2 class="section-title">
-      <span class="red">Galería de</span> <span class="green">Buses</span>
-    </h2>
+    <div class="container">
+      <h2 class="section-title">
+        <span class="red">Galería de</span> <span class="green">Buses</span>
+      </h2>
 
-    <!-- BUSSCAR -->
-    <div class="gallery-brand">
-      <h3>BUSSCAR</h3>
-      <div class="bus-list">
+      <!-- BUSSCAR -->
+      <div class="gallery-brand">
+        <h3>BUSSCAR</h3>
+        <div class="bus-list">
 
-        <div class="bus-item">
-          <img src="busscar1.jpg" alt="Busscar DD 8x2 Mercedez Vista Bus">
-          <p>Busscar DD 8x2 Mercedez Vista Bus</p>
+          <div class="bus-item">
+            <img src="busscar1.jpg" alt="Busscar DD 8x2 Mercedes Vista Bus">
+            <p>Busscar DD 8x2 Mercedes Vista Bus</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="busscar2.jpg" alt="Panorámico DD 6x2 Scania">
+            <p>Panorámico DD 6x2 Scania</p>
+          </div>
+
         </div>
-
-        <div class="bus-item">
-          <img src="busscar2.jpg" alt="Panorámico DD 6x2 Scania">
-          <p>Panorámico DD 6x2 Scania</p>
-        </div>
-
       </div>
-    </div>
 
-    <!-- COMIL -->
-    <div class="gallery-brand">
-      <h3>COMIL</h3>
-      <div class="bus-list">
+      <!-- COMIL -->
+      <div class="gallery-brand">
+        <h3>COMIL</h3>
+        <div class="bus-list">
 
-        <div class="bus-item">
-          <img src="comil1.jpg" alt="Comil Invictus DD Volvo">
-          <p>Comil Invictus DD Volvo</p>
+          <div class="bus-item">
+            <img src="comil1.jpg" alt="Comil Invictus DD Volvo">
+            <p>Comil Invictus DD Volvo</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="comil2.jpg" alt="Comil Invictus DD 2023 6x2 15m Mercedes">
+            <p>Comil Invictus DD 2023 6x2 15m Mercedes</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="comil3.jpg" alt="Comil Invictus HD 6x2 Scania">
+            <p>Comil Invictus HD 6x2 Scania</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="comil4.jpg" alt="Comil Invictus DD 2023 8x2 15m Mercedes">
+            <p>Comil Invictus DD 2023 8x2 15m Mercedes</p>
+          </div>
+
         </div>
-
-        <div class="bus-item">
-          <img src="comil2.jpg" alt="Comil Invictus DD 2023 6x2 15m Mercedez">
-          <p>Comil Invictus DD 2023 6x2 15m Mercedez</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="comil3.jpg" alt="Comil Invictus HD 6x2 Scania">
-          <p>Comil Invictus HD 6x2 Scania</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="comil4.jpg" alt="Comil Invictus DD 2023 8x2 15m Mercedez">
-          <p>Comil Invictus DD 2023 8x2 15m Mercedez</p>
-        </div>
-
       </div>
-    </div>
 
-    <!-- IRIZAR -->
-    <div class="gallery-brand">
-      <h3>IRIZAR</h3>
-      <div class="bus-list">
+      <!-- IRIZAR -->
+      <div class="gallery-brand">
+        <h3>IRIZAR</h3>
+        <div class="bus-list">
 
-        <div class="bus-item">
-          <img src="irizar1.jpg" alt="Irizar i6s 6x2 Scania">
-          <p>Irizar i6s 6x2 Scania</p>
+          <div class="bus-item">
+            <img src="irizar1.jpg" alt="Irizar i6s 6x2 Scania">
+            <p>Irizar i6s 6x2 Scania</p>
+          </div>
+
         </div>
-
       </div>
-    </div>
 
-    <!-- MARCOPOLO -->
-    <div class="gallery-brand">
-      <h3>MARCOPOLO</h3>
-      <div class="bus-list">
+      <!-- MARCOPOLO -->
+      <div class="gallery-brand">
+        <h3>MARCOPOLO</h3>
+        <div class="bus-list">
 
-        <div class="bus-item">
-          <img src="marcopolo1.jpg" alt="Marcopolo Paradiso 1600 LD">
-          <p>Marcopolo Paradiso 1600 LD</p>
+          <div class="bus-item">
+            <img src="marcopolo1.jpg" alt="Marcopolo Paradiso 1600 LD">
+            <p>Marcopolo Paradiso 1600 LD</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="marcopolo2.jpg" alt="Marcopolo G7 1600 6x2 Mercedes">
+            <p>Marcopolo G7 1600 6x2 Mercedes</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="marcopolo3.jpg" alt="Marcopolo G8 1800 DD Scania">
+            <p>Marcopolo G8 1800 DD Scania</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="marcopolo4.jpg" alt="Marcopolo G7 1800 DD 8x2">
+            <p>Marcopolo G7 1800 DD 8x2</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="marcopolo5.jpg" alt="Paradiso G7 1800 DD 15m">
+            <p>Paradiso G7 1800 DD 15m</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="marcopolo6.jpg" alt="Marcopolo G6 1800 DD 6x2 Scania">
+            <p>Marcopolo G6 1800 DD 6x2 Scania</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="marcopolo7.jpg" alt="Paradiso NEW G7 1800 DD">
+            <p>Paradiso NEW G7 1800 DD</p>
+          </div>
+
         </div>
-
-        <div class="bus-item">
-          <img src="marcopolo2.jpg" alt="Marcopolo G7 1600 6x2 Mercedez">
-          <p>Marcopolo G7 1600 6x2 Mercedez</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="marcopolo3.jpg" alt="Marcopolo G8 1800 DD Scania">
-          <p>Marcopolo G8 1800 DD Scania</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="marcopolo4.jpg" alt="Marcopolo G7 1800 DD 8x2">
-          <p>Marcopolo G7 1800 DD 8x2</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="marcopolo5.jpg" alt="Paradiso G7 1800 DD 15m">
-          <p>Paradiso G7 1800 DD 15m</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="marcopolo6.jpg" alt="Marcopolo G6 1800 DD 6x2 Scania">
-          <p>Marcopolo G6 1800 DD 6x2 Scania</p>
-        </div>
-
-        <div class="bus-item">
-          <img src="marcopolo7.jpg" alt="Paradiso NEW G7 1800 DD">
-          <p>Paradiso NEW G7 1800 DD</p>
-        </div>
-
       </div>
-    </div>
 
-    <!-- MODASA -->
-    <div class="gallery-brand">
-      <h3>MODASA</h3>
-      <div class="bus-list">
+      <!-- MODASA -->
+      <div class="gallery-brand">
+        <h3>MODASA</h3>
+        <div class="bus-list">
 
-        <div class="bus-item">
-          <img src="modasa1.jpg" alt="Modasa Zeus 3">
-          <p>Modasa Zeus 3</p>
+          <div class="bus-item">
+            <img src="modasa1.jpg" alt="Modasa Zeus 3">
+            <p>Modasa Zeus 3</p>
+          </div>
+
+          <div class="bus-item">
+            <img src="modasa2.jpg" alt="Modasa Zeus 5 Scania">
+            <p>Modasa Zeus 5 Scania</p>
+          </div>
+
         </div>
-
-        <div class="bus-item">
-          <img src="modasa2.jpg" alt="Modasa Zeus 5 Scania">
-          <p>Modasa Zeus 5 Scania</p>
-        </div>
-
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
   <section id="requisitos">
     <div class="container">
@@ -803,7 +804,7 @@
           <li>✅ Ser <strong>activo</strong> dentro de la empresa</li>
           <li>✅ Tener <strong>respeto y compañerismo</strong></li>
           <li>✅ Participar en convoys y actividades cuando sea posible</li>
-          <li>✅ Ganas de crecer junto al equipo AEX</li>
+          <li>✅ Tener ganas de crecer junto al equipo AEX</li>
         </ul>
       </div>
     </div>
