@@ -44,7 +44,7 @@ section{
 .bg{
  position:absolute;
  inset:0;
- background:#333; /* fallback */
+ background:#333;
  background-size:cover;
  background-position:center;
  transform:scale(1.25);
@@ -162,7 +162,7 @@ p{
 .destino-modal{
  position:fixed;
  inset:0;
- background:rgba(0,0,0,0.8);
+ background:rgba(0,0,0,0.9);
  display:none;
  align-items:center;
  justify-content:center;
@@ -172,28 +172,30 @@ p{
  background:#fff;
  color:#111;
  border-radius:15px;
- max-width:400px;
+ max-width:500px;
  width:90%;
  overflow:hidden;
+ text-align:center;
 }
 .destino-box img{
  width:100%;
- height:200px;
+ height:250px;
  object-fit:cover;
  background:#ccc;
 }
 .destino-box .info{
- padding:15px;
- text-align:center;
+ padding:20px;
 }
 .cerrar{
- margin-top:10px;
+ margin-top:15px;
  display:inline-block;
  background:#16a34a;
  color:#fff;
- padding:8px 15px;
+ padding:10px 20px;
  border-radius:8px;
  cursor:pointer;
+ font-weight:700;
+ font-size:16px;
 }
 
 /* MODAL AVISO */
@@ -284,21 +286,21 @@ p{
 
 <div class="content">
 <h2>Rutas y Destinos</h2>
-<p>Lima - Cusco - Arequipa</p>
+<p>Explora nuestros principales destinos:</p>
 
 <div class="destinos-grid">
   <div class="destino-card" onclick="abrirDestino('lima')">
-    <img src="lima.jpg" onerror="this.style.display='none'">
+    <img src="lima.jpg" onerror="this.src='placeholder.jpg'">
     <span>Lima</span>
   </div>
 
   <div class="destino-card" onclick="abrirDestino('cusco')">
-    <img src="cusco.jpg" onerror="this.style.display='none'">
+    <img src="cusco.jpg" onerror="this.src='placeholder.jpg'">
     <span>Cusco</span>
   </div>
 
   <div class="destino-card" onclick="abrirDestino('arequipa')">
-    <img src="arequipa.jpg" onerror="this.style.display='none'">
+    <img src="arequipa.jpg" onerror="this.src='placeholder.jpg'">
     <span>Arequipa</span>
   </div>
 </div>
@@ -319,10 +321,10 @@ p{
 <!-- MODAL DESTINO -->
 <div id="destinoModal" class="destino-modal">
   <div class="destino-box">
-    <img id="destinoImg">
+    <img id="destinoImg" src="placeholder.jpg">
     <div class="info">
-      <h3 id="destinoTitulo"></h3>
-      <p id="destinoDesc"></p>
+      <h3 id="destinoTitulo">Destino</h3>
+      <p id="destinoDesc">Descripción del destino</p>
       <div class="cerrar" onclick="cerrarDestino()">Cerrar</div>
     </div>
   </div>
@@ -349,16 +351,18 @@ function abrirDestino(destino){
   cusco:{img:"cusco.jpg",titulo:"Cusco",desc:"Destino turístico"},
   arequipa:{img:"arequipa.jpg",titulo:"Arequipa",desc:"Ciudad blanca"}
  };
- document.getElementById("destinoImg").src = data[destino].img;
- document.getElementById("destinoTitulo").innerText = data[destino].titulo;
- document.getElementById("destinoDesc").innerText = data[destino].desc;
+ const destinoData = data[destino] || {img:"placeholder.jpg", titulo:"Destino", desc:"Descripción no disponible"};
+ document.getElementById("destinoImg").src = destinoData.img;
+ document.getElementById("destinoTitulo").innerText = destinoData.titulo;
+ document.getElementById("destinoDesc").innerText = destinoData.desc;
  document.getElementById("destinoModal").style.display="flex";
 }
 
-function cerrarDestino(){document.getElementById("destinoModal").style.display="none";}
+function cerrarDestino(){
+ document.getElementById("destinoModal").style.display="none";
+}
 </script>
 
 </body>
 </html>
-</body>
 </html>
