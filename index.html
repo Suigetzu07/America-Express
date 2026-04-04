@@ -103,26 +103,43 @@ p{
 
 /* NAV */
 .topbar{
- position:fixed;
- top:0;
- left:0;
- width:100%;
- background:rgba(0,0,0,0.65);
- backdrop-filter:blur(12px);
- z-index:9999;
- border-bottom:2px solid #16a34a;
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+  border-bottom:2px solid #16a34a;
 }
 .nav{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:14px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px; /* más espacio */
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:55px}
-.brand strong{font-size:20px;letter-spacing:1px}
-.nav-links{display:flex;gap:15px}
-.nav-links a{color:#fff;text-decoration:none;font-size:16px}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px; /* más separación entre logo y nombre */
+}
+.brand img{
+  width:60px; /* logo más grande */
+}
+.nav-links{
+  display:flex;
+  gap:25px; /* más espacio entre enlaces */
+}
+.nav-links a{
+  color:#fff;
+  text-decoration:none;
+  font-size:20px; /* letras más grandes */
+  font-weight:700;
+  padding:8px 12px; /* área clicable más grande */
+  transition:0.3s;
+}
+.nav-links a:hover{
+  color:#dc2626; /* efecto hover */
+}
 
 /* DESTINOS */
 .destinos-grid{
