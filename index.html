@@ -4,51 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>América Express [AEX] - Reclutamiento</title>
-
 <style>
   /* RESET BÁSICO */
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; scroll-behavior: smooth; }
-
-  /* BODY Y FONDO */
-  body {
-    background: url('fondo-america.jpg') no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
-    color: #fff;
-    line-height: 1.6;
-  }
-
-  /* Overlay oscuro para mejorar la lectura del texto */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45); /* Ajusta la opacidad según prefieras */
-    z-index: -1;
-  }
+  body { background: #f8fafc; color: #111; line-height: 1.6; }
 
   .container { width: 95%; max-width: 1600px; margin: auto; }
 
   /* TOPBAR */
-  .topbar { position: sticky; top: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.2); z-index: 1000; }
+  .topbar { position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #e5e7eb; z-index: 1000; }
   .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-logo { width: 56px; height: 56px; border-radius: 16px; background: #fff; border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .brand-logo { width: 56px; height: 56px; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .brand-logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
-  .brand-text h3 { font-size: 18px; font-weight: 900; color:#f3f4f6; }
-  .brand-text p { font-size: 12px; color: #d1d5db; }
+  .brand-text h3 { font-size: 18px; font-weight: 900; }
+  .brand-text p { font-size: 12px; color: #6b7280; }
   .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
-  .nav-links a { text-decoration: none; color: #f3f4f6; font-weight: 700; font-size: 14px; transition: 0.3s; }
-  .nav-links a:hover { color: #facc15; }
+  .nav-links a { text-decoration: none; color: #374151; font-weight: 700; font-size: 14px; transition: 0.3s; }
+  .nav-links a:hover { color: #dc2626; }
 
   /* HERO */
   .hero { text-align: center; padding: 70px 0 50px; position: relative; overflow: hidden; }
-  .logo-main { width: 420px; max-width: 100%; margin: 0 auto 25px; border-radius: 28px; background: #fff; border: 6px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,0.1); animation: float 3.5s ease-in-out infinite; padding: 20px; }
+  .logo-main { width: 420px; max-width: 100%; margin: 0 auto 25px; border-radius: 28px; background: #fff; border: 6px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,0.1); animation: float 3.5s ease-in-out infinite; padding: 20px; }
   .logo-main img { width: 100%; height: auto; object-fit: contain; display: block; }
   @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
   .hero h1 { font-size: 68px; font-weight: 900; margin-bottom: 18px; }
-  .red { color: #dc2626; } .green { color: #16a34a; } .black { color: #f3f4f6; }
-  .subtitle { font-size: 21px; color: #e5e7eb; max-width: 850px; margin: 0 auto 35px; }
+  .red { color: #dc2626; } .green { color: #16a34a; } .black { color: #111; }
+  .subtitle { font-size: 21px; color: #4b5563; max-width: 850px; margin: 0 auto 35px; }
   .buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 35px; }
   .btn { display: inline-block; text-decoration: none; padding: 15px 28px; border-radius: 14px; font-weight: 800; transition: 0.3s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
   .btn-red { background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; }
@@ -60,38 +42,45 @@
   #acerca { padding: 80px 0; }
   .about-flex { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
   .about-text { flex: 1; }
-  .about-text p { font-size: 18px; margin-bottom: 15px; color: #e5e7eb; }
+  .about-text p { font-size: 18px; margin-bottom: 15px; color: #4b5563; }
   .about-slider { flex: 1; position: relative; overflow: hidden; border-radius: 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
-  .about-slider .slides { display: flex; width: 400%; animation: slide 12s infinite; }
+  
+  /* SLIDER MODIFICADO: 8s por imagen */
+  .about-slider .slides { display: flex; width: 400%; animation: slide 32s infinite; }
   .about-slider img { width: 25%; object-fit: cover; border-radius: 18px; height: 250px; }
-  @keyframes slide { 0%,20%{transform:translateX(0%);} 25%,45%{transform:translateX(-25%);} 50%,70%{transform:translateX(-50%);} 75%,95%{transform:translateX(-75%);} 100%{transform:translateX(0%);} }
+  @keyframes slide {
+    0%, 25%   { transform: translateX(0%); }
+    26%, 50%  { transform: translateX(-25%); }
+    51%, 75%  { transform: translateX(-50%); }
+    76%, 100% { transform: translateX(-75%); }
+  }
 
   /* STAFF MODERNO */
   #staff { padding: 80px 0; }
   .staff-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; }
-  .staff-card { background: rgba(255,255,255,0.1); border-radius: 22px; padding: 24px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
+  .staff-card { background: #fff; border-radius: 22px; padding: 24px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
   .staff-card:hover { transform: translateY(-5px); }
   .staff-avatar { width: 72px; height: 72px; margin: 0 auto 15px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:900; color:white; background: linear-gradient(135deg,#dc2626,#16a34a); box-shadow:0 8px 18px rgba(0,0,0,0.08);}
-  .staff-card h4 { font-size: 20px; margin-bottom: 6px; color:#f3f4f6; }
-  .staff-card p { color:#e5e7eb; font-weight:700; }
+  .staff-card h4 { font-size: 20px; margin-bottom: 6px; color:#111; }
+  .staff-card p { color:#6b7280; font-weight:700; }
 
   /* GALERÍA DE BUSES */
   #galeria { padding: 80px 0; }
-  .gallery-brand { margin-bottom: 40px; background: rgba(255,255,255,0.1); padding: 26px; border-radius:24px; box-shadow:0 10px 30px rgba(0,0,0,0.08); border:1px solid rgba(255,255,255,0.2); overflow:hidden; }
-  .gallery-brand h3 { color:#facc15; margin-bottom:16px; font-size:1.5rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; border-bottom:2px solid rgba(255,255,255,0.2); padding-bottom:10px; }
+  .gallery-brand { margin-bottom: 40px; background: linear-gradient(145deg,#fff,#f8fafc); padding: 26px; border-radius:24px; box-shadow:0 10px 30px rgba(0,0,0,0.08); border:1px solid rgba(22,163,74,0.12); overflow:hidden; }
+  .gallery-brand h3 { color:#dc2626; margin-bottom:16px; font-size:1.5rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; border-bottom:2px solid #eef2f7; padding-bottom:10px; }
   .bus-list { display: flex; flex-wrap: wrap; gap:16px; justify-content:center; }
-  .bus-item { flex: 1 1 300px; display:flex; flex-direction:column; align-items:center; gap:12px; background: rgba(255,255,255,0.15); border-radius:18px; padding:12px; box-shadow:0 10px 22px rgba(0,0,0,0.08); transition:0.3s; }
+  .bus-item { flex: 1 1 300px; display:flex; flex-direction:column; align-items:center; gap:12px; background: rgba(255,255,255,0.95); border-radius:18px; padding:12px; box-shadow:0 10px 22px rgba(0,0,0,0.08); transition:0.3s; }
   .bus-item img { width: 100%; border-radius:12px; height: 220px; object-fit: cover; }
-  .bus-item p { font-size:18px; font-weight:700; text-align:center; color:#f3f4f6; }
+  .bus-item p { font-size:18px; font-weight:700; text-align:center; color:#111827; }
 
   /* RECLUTAMIENTO */
   #reclutamiento { padding:80px 0; }
-  .highlight-box { background: rgba(255,255,255,0.1); border-radius:24px; padding:35px; text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.05); }
-  .highlight-box p { font-size:20px; color:#f3f4f6; margin-bottom:20px; }
+  .highlight-box { background: linear-gradient(135deg, rgba(220,38,38,0.06), rgba(22,163,74,0.06)); border-radius:24px; padding:35px; text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.05); }
+  .highlight-box p { font-size:20px; color:#374151; margin-bottom:20px; }
   .highlight-box .buttons { margin-bottom:0; }
 
   /* FOOTER */
-  footer { text-align:center; padding:35px 20px; border-top:1px solid rgba(255,255,255,0.2); color:#e5e7eb; background: rgba(0,0,0,0.5); }
+  footer { text-align:center; padding:35px 20px; border-top:1px solid #e5e7eb; color:#6b7280; background:#ffffff; }
 
   /* RESPONSIVO */
   @media(max-width:1024px){.about-flex{flex-direction:column;}.about-slider img{width:100%;height:auto;}}
