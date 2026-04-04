@@ -44,6 +44,7 @@ section{
 .bg{
  position:absolute;
  inset:0;
+ background:#333; /* fallback */
  background-size:cover;
  background-position:center;
  transform:scale(1.2);
@@ -63,32 +64,18 @@ section.active .bg{transform:scale(1)}
  position:relative;
  z-index:2;
  text-align:center;
- max-width:800px;
- opacity:0;
- transform:translateY(40px);
+ max-width:900px;
+ opacity:1;
+ transform:translateY(0);
  transition:1s;
 }
 section.active .content{
- opacity:1;
- transform:translateY(0);
+ transform:translateY(-10px);
 }
 
-/* TEXTO */
-h1,h2{
- text-shadow:0 5px 20px #000;
-}
-h1{font-size:50px}
+h1{font-size:50px;text-shadow:0 5px 20px #000}
 h2{font-size:38px;color:#16a34a}
 p{color:#e5e7eb;margin:15px 0}
-
-/* EFECTO LETRAS */
-.typing span{
- opacity:0;
- animation:fadeLetter 0.05s forwards;
-}
-@keyframes fadeLetter{
- to{opacity:1}
-}
 
 /* BOTON */
 .btn{
@@ -119,7 +106,79 @@ p{color:#e5e7eb;margin:15px 0}
 .nav-links{display:flex;gap:15px}
 .nav-links a{color:#fff;text-decoration:none}
 
-/* MODAL */
+/* DESTINOS */
+.destinos-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+ gap:15px;
+ margin-top:20px;
+}
+.destino-card{
+ position:relative;
+ border-radius:12px;
+ overflow:hidden;
+ cursor:pointer;
+ transition:0.3s;
+}
+.destino-card img{
+ width:100%;
+ height:120px;
+ object-fit:cover;
+ filter:brightness(0.7);
+ transition:0.3s;
+}
+.destino-card span{
+ position:absolute;
+ bottom:8px;
+ left:10px;
+ color:#fff;
+ font-weight:700;
+ font-size:14px;
+}
+.destino-card:hover img{
+ transform:scale(1.1);
+ filter:brightness(1);
+}
+
+/* MODAL DESTINO */
+.destino-modal{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,0.8);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ z-index:4000;
+}
+.destino-box{
+ background:#fff;
+ color:#111;
+ border-radius:15px;
+ max-width:400px;
+ width:90%;
+ overflow:hidden;
+}
+.destino-box img{
+ width:100%;
+ height:200px;
+ object-fit:cover;
+ background:#ccc;
+}
+.destino-box .info{
+ padding:15px;
+ text-align:center;
+}
+.cerrar{
+ margin-top:10px;
+ display:inline-block;
+ background:#16a34a;
+ color:#fff;
+ padding:8px 15px;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+/* MODAL AVISO */
 .modal-checkbox{display:none}
 .modal{
  position:fixed;
@@ -146,11 +205,6 @@ p{color:#e5e7eb;margin:15px 0}
 }
 .modal-checkbox:checked + .modal{display:none}
 
-/* FIX: primera sección visible siempre */
-section:first-child .content{
- opacity:1;
- transform:translateY(0);
-}
 </style>
 </head>
 
@@ -158,7 +212,7 @@ section:first-child .content{
 
 <!-- LOADER -->
 <div id="loader">
-  <img src="logo-america.png" class="loader-logo">
+  <img src="logo-america.png" class="loader-logo" onerror="this.style.display='none'">
   <div>Cargando AEX...</div>
 </div>
 
@@ -176,7 +230,7 @@ section:first-child .content{
 <div class="topbar">
   <div class="nav">
     <div class="brand">
-      <img src="logo-america.png">
+      <img src="logo-america.png" onerror="this.style.display='none'">
       <strong>AEX</strong>
     </div>
     <div class="nav-links">
@@ -194,9 +248,8 @@ section:first-child .content{
 <div class="bg" style="background-image:url('bus1.jpg')"></div>
 <div class="overlay"></div>
 <div class="content">
-<h1 class="typing">América Express [AEX]</h1>
+<h1>América Express [AEX]</h1>
 <p>Empresa virtual profesional de ETS2 Perú</p>
-<a href="#reclutamiento" class="btn btn-red">Postular</a>
 </div>
 </section>
 
@@ -212,9 +265,28 @@ section:first-child .content{
 <section id="rutas">
 <div class="bg" style="background-image:url('bus2.jpg')"></div>
 <div class="overlay"></div>
+
 <div class="content">
-<h2>Rutas</h2>
-<p>Lima - Arequipa | Lima - Cusco | Lima - Trujillo</p>
+<h2>Rutas y Destinos</h2>
+<p>Lima - Cusco - Arequipa</p>
+
+<div class="destinos-grid">
+  <div class="destino-card" onclick="abrirDestino('lima')">
+    <img src="lima.jpg" onerror="this.style.display='none'">
+    <span>Lima</span>
+  </div>
+
+  <div class="destino-card" onclick="abrirDestino('cusco')">
+    <img src="cusco.jpg" onerror="this.style.display='none'">
+    <span>Cusco</span>
+  </div>
+
+  <div class="destino-card" onclick="abrirDestino('arequipa')">
+    <img src="arequipa.jpg" onerror="this.style.display='none'">
+    <span>Arequipa</span>
+  </div>
+</div>
+
 </div>
 </section>
 
@@ -224,14 +296,25 @@ section:first-child .content{
 <div class="content">
 <h2>Reclutamiento</h2>
 <p>Únete a nuestra empresa</p>
-<a href="https://discord.gg/ARAV5xQH" class="btn btn-red">Discord</a>
 </div>
 </section>
 
 </main>
 
+<!-- MODAL DESTINO -->
+<div id="destinoModal" class="destino-modal">
+  <div class="destino-box">
+    <img id="destinoImg">
+    <div class="info">
+      <h3 id="destinoTitulo"></h3>
+      <p id="destinoDesc"></p>
+      <div class="cerrar" onclick="cerrarDestino()">Cerrar</div>
+    </div>
+  </div>
+</div>
+
 <script>
-// LOADER
+// LOADER FIX
 document.addEventListener("DOMContentLoaded", function(){
  setTimeout(()=>{
    document.getElementById("loader").style.display="none";
@@ -246,30 +329,24 @@ document.querySelector(".btn-accept").onclick=function(){
  localStorage.setItem("avisoAceptado","true");
 }
 
-// SCROLL FIX
-const sections = document.querySelectorAll("section");
-function activar(){
- sections.forEach(sec=>{
-  const rect = sec.getBoundingClientRect();
-  if(rect.top < window.innerHeight * 0.6){
-    sec.classList.add("active");
-  }
- });
+// DESTINOS
+function abrirDestino(destino){
+ const data={
+  lima:{img:"lima.jpg",titulo:"Lima",desc:"Capital del Perú"},
+  cusco:{img:"cusco.jpg",titulo:"Cusco",desc:"Destino turístico"},
+  arequipa:{img:"arequipa.jpg",titulo:"Arequipa",desc:"Ciudad blanca"}
+ };
+
+ document.getElementById("destinoImg").src = data[destino].img;
+ document.getElementById("destinoTitulo").innerText = data[destino].titulo;
+ document.getElementById("destinoDesc").innerText = data[destino].desc;
+
+ document.getElementById("destinoModal").style.display="flex";
 }
-activar();
-window.addEventListener("scroll", activar);
 
-// EFECTO TEXTO LETRA POR LETRA
-const typing = document.querySelector(".typing");
-const text = typing.innerText;
-typing.innerHTML = "";
-
-[...text].forEach((letter, i)=>{
- const span = document.createElement("span");
- span.textContent = letter;
- span.style.animationDelay = i * 0.05 + "s";
- typing.appendChild(span);
-});
+function cerrarDestino(){
+ document.getElementById("destinoModal").style.display="none";
+}
 </script>
 
 </body>
