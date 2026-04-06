@@ -14,8 +14,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
-            color: #fff;
+            background: #ffffff;
+            color: #1a1a2e;
             overflow-x: hidden;
         }
 
@@ -26,6 +26,8 @@
             --blanco: #ffffff;
             --rojo-oscuro: #990000;
             --verde-oscuro: #008040;
+            --gris-claro: #f5f5f5;
+            --gris-borde: #e0e0e0;
         }
 
         /* Animaciones */
@@ -51,25 +53,16 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
         /* Header / Navegación */
         .navbar {
-            background: rgba(0, 0, 0, 0.95);
+            background: #ffffff;
             padding: 1rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--rojo);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--rojo);
         }
 
         .nav-container {
@@ -86,7 +79,7 @@
         }
 
         .logo .america {
-            color: var(--blanco);
+            color: #1a1a2e;
         }
 
         .logo .express {
@@ -105,7 +98,7 @@
         }
 
         .nav-links a {
-            color: #fff;
+            color: #1a1a2e;
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 500;
@@ -118,14 +111,13 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, rgba(204,0,0,0.05) 0%, rgba(0,166,80,0.05) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
+            margin-top: 60px;
         }
 
         .hero-content {
@@ -138,7 +130,7 @@
         }
 
         .hero h1 .america {
-            color: var(--blanco);
+            color: #1a1a2e;
         }
 
         .hero h1 .express {
@@ -153,7 +145,7 @@
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            color: #ddd;
+            color: #4a4a5a;
         }
 
         .btn {
@@ -166,6 +158,8 @@
             transition: transform 0.3s, background 0.3s;
             margin: 0.5rem;
             font-weight: bold;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -176,10 +170,12 @@
         .btn-outline {
             background: transparent;
             border: 2px solid var(--verde);
+            color: var(--verde);
         }
 
         .btn-outline:hover {
             background: var(--verde);
+            color: #fff;
             border-color: var(--verde);
         }
 
@@ -195,6 +191,7 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             position: relative;
+            color: #1a1a2e;
         }
 
         .section-title::after {
@@ -217,16 +214,17 @@
         }
 
         .bus-card {
-            background: rgba(255,255,255,0.1);
+            background: var(--gris-claro);
             border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid var(--gris-borde);
         }
 
         .bus-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
             border-color: var(--rojo);
         }
 
@@ -246,10 +244,11 @@
         .bus-info h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            color: #1a1a2e;
         }
 
         .bus-info p {
-            color: #ccc;
+            color: #4a4a5a;
             margin-bottom: 1rem;
         }
 
@@ -257,6 +256,7 @@
             display: inline-block;
             padding: 0.3rem 0.8rem;
             background: var(--rojo);
+            color: #fff;
             border-radius: 20px;
             font-size: 0.8rem;
         }
@@ -265,6 +265,7 @@
             display: inline-block;
             padding: 0.3rem 0.8rem;
             background: var(--verde);
+            color: #fff;
             border-radius: 20px;
             font-size: 0.8rem;
         }
@@ -279,15 +280,15 @@
         .servicio-card {
             text-align: center;
             padding: 2rem;
-            background: rgba(255,255,255,0.05);
+            background: var(--gris-claro);
             border-radius: 15px;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--gris-borde);
         }
 
         .servicio-card:hover {
             transform: translateY(-5px);
-            background: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border-color: var(--verde);
         }
 
@@ -299,6 +300,11 @@
 
         .servicio-card h3 {
             margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        .servicio-card p {
+            color: #4a4a5a;
         }
 
         /* Requisitos */
@@ -306,6 +312,7 @@
             background: linear-gradient(135deg, var(--rojo) 0%, var(--verde) 100%);
             border-radius: 20px;
             padding: 2rem;
+            color: #fff;
         }
 
         .requisitos-list {
@@ -324,7 +331,7 @@
         }
 
         .requisitos-list i {
-            color: var(--blanco);
+            color: #fff;
         }
 
         /* Contacto */
@@ -335,10 +342,15 @@
         }
 
         .contacto-info {
-            background: rgba(255,255,255,0.05);
+            background: var(--gris-claro);
             padding: 2rem;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--gris-borde);
+        }
+
+        .contacto-info h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
         }
 
         .contacto-info p {
@@ -346,6 +358,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: #4a4a5a;
         }
 
         .contacto-info i {
@@ -360,7 +373,7 @@
         }
 
         .social-links a {
-            color: #fff;
+            color: #1a1a2e;
             font-size: 1.5rem;
             transition: color 0.3s;
         }
@@ -370,11 +383,19 @@
         }
 
         .discord-widget {
-            background: rgba(255,255,255,0.05);
+            background: var(--gris-claro);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--gris-borde);
+        }
+
+        .discord-widget h3 {
+            color: #1a1a2e;
+        }
+
+        .discord-widget p {
+            color: #4a4a5a;
         }
 
         .discord-widget i {
@@ -383,11 +404,11 @@
 
         /* Footer */
         .footer {
-            background: #000;
+            background: #1a1a2e;
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            border-top: 2px solid var(--rojo);
+            color: #fff;
         }
 
         .footer .rojo {
