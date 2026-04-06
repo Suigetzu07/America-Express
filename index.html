@@ -211,7 +211,7 @@
             transform: translateX(-50%);
         }
 
-        /* Flota de Buses */
+        /* Flota de Buses - CON IMÁGENES MANTENIENDO DISEÑO */
         .flota-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -234,13 +234,43 @@
             border-color: var(--verde);
         }
 
+        /* NUEVO ESTILO PARA BUS-IMG CON IMÁGENES Y GRADIENTE */
         .bus-img {
             height: 200px;
+            position: relative;
+            overflow: hidden;
             background: linear-gradient(135deg, var(--rojo) 0%, var(--verde) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        /* Imagen superpuesta con opacidad */
+        .bus-img .bus-foto {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            transition: opacity 0.3s ease;
+        }
+
+        /* El emoji se mantiene visible encima */
+        .bus-img .bus-emoji {
+            position: relative;
+            z-index: 2;
             font-size: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Al pasar el mouse, la imagen se ve más */
+        .bus-card:hover .bus-img .bus-foto {
+            opacity: 0.65;
         }
 
         .bus-info {
@@ -477,12 +507,16 @@
         </div>
     </section>
 
-    <!-- Resto de secciones igual que antes... -->
+    <!-- FLOTA CON IMÁGENES + EMOJIS + GRADIENTE -->
     <section id="flota" class="section">
         <h2 class="section-title">🚌 Nuestra Flota AEXA 🚌</h2>
         <div class="flota-grid">
             <div class="bus-card">
-                <div class="bus-img">🚌</div>
+                <div class="bus-img">
+                    <!-- Imagen del bus específico (superpuesta con opacidad) -->
+                    <img class="bus-foto" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=200&fit=crop" alt="Irizar i6s" loading="lazy">
+                    <div class="bus-emoji">🚌</div>
+                </div>
                 <div class="bus-info">
                     <h3>Irizar i6s</h3>
                     <p>Bus de lujo con capacidad para 50 pasajeros. Aire acondicionado, WiFi, baño.</p>
@@ -490,27 +524,36 @@
                 </div>
             </div>
             <div class="bus-card">
-                <div class="bus-img">🚍</div>
+                <div class="bus-img">
+                    <img class="bus-foto" src="https://images.unsplash.com/photo-1570125909232-263b7b7b6c1f?w=400&h=200&fit=crop" alt="Marcopolo G7 1800 DD 15m" loading="lazy">
+                    <div class="bus-emoji">🚍</div>
+                </div>
                 <div class="bus-info">
                     <h3>Marcopolo G7 1800 DD 15m</h3>
                     <p>Confort y seguridad en cada viaje. Asientos reclinables y entretenimiento.</p>
-                    <span class="badge-verde">★★★★☆ Bus cama </span>
+                    <span class="badge-verde">★★★★☆ Bus cama</span>
                 </div>
             </div>
             <div class="bus-card">
-                <div class="bus-img">🚎</div>
+                <div class="bus-img">
+                    <img class="bus-foto" src="https://images.unsplash.com/photo-1586892477838-2f96e8f2e2a8?w=400&h=200&fit=crop" alt="Modasa Zeus 5" loading="lazy">
+                    <div class="bus-emoji">🚎</div>
+                </div>
                 <div class="bus-info">
                     <h3>Modasa Zeus 5</h3>
                     <p>La excelencia en carretera. Tecnología de punta y máxima comodidad.</p>
-                    <span class="badge-rojo">★★★★★ Ejecutivo y Premiun </span>
+                    <span class="badge-rojo">★★★★★ Ejecutivo y Premium</span>
                 </div>
             </div>
             <div class="bus-card">
-                <div class="bus-img">🚌</div>
+                <div class="bus-img">
+                    <img class="bus-foto" src="https://images.unsplash.com/photo-1566473965990-3de3b0f2cd9a?w=400&h=200&fit=crop" alt="Marcopolo Paradiso G8 1800" loading="lazy">
+                    <div class="bus-emoji">🚌</div>
+                </div>
                 <div class="bus-info">
-                    <h3>Marcopolo Paradiso G8 1800 </h3>
+                    <h3>Marcopolo Paradiso G8 1800</h3>
                     <p>Diseño europeo, lujo y estilo. Para los viajes más exigentes.</p>
-                    <span class="badge-verde">★★★★★ Premiun Plus </span>
+                    <span class="badge-verde">★★★★★ Premium Plus</span>
                 </div>
             </div>
         </div>
@@ -587,7 +630,7 @@
                 <i class="fab fa-discord" style="font-size: 3rem; color: #5865F2;"></i>
                 <h3>Únete a nuestro Discord</h3>
                 <p>Comunidad activa, convoyes diarios y eventos especiales</p>
-                <a href="https://discord.gg/ARAV5xQH" class="btn" style="background: #5865F2;">🎮 Unirse al Discord de AEXA</a>
+                <a href="#" class="btn" style="background: #5865F2;">🎮 Unirse al Discord de AEXA</a>
             </div>
         </div>
     </section>
@@ -629,6 +672,13 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
+        });
+
+        // Manejo de errores de imágenes (si no cargan, solo se ve el emoji)
+        document.querySelectorAll('.bus-foto').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+            });
         });
     </script>
 </body>
