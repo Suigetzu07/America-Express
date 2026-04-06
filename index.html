@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transportes Perú - ETS2 | Empresa de Buses</title>
+    <title>America Express [AEXA] - ETS2 | Empresa de Buses Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -14,9 +14,18 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
             color: #fff;
             overflow-x: hidden;
+        }
+
+        /* Colores de America Express */
+        :root {
+            --rojo: #cc0000;
+            --verde: #00a650;
+            --blanco: #ffffff;
+            --rojo-oscuro: #990000;
+            --verde-oscuro: #008040;
         }
 
         /* Animaciones */
@@ -60,7 +69,7 @@
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid #e63946;
+            border-bottom: 2px solid var(--rojo);
         }
 
         .nav-container {
@@ -74,11 +83,19 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #e63946;
         }
 
-        .logo span {
-            color: #fff;
+        .logo .america {
+            color: var(--blanco);
+        }
+
+        .logo .express {
+            color: var(--rojo);
+        }
+
+        .logo .aexa {
+            color: var(--verde);
+            font-size: 1rem;
         }
 
         .nav-links {
@@ -95,7 +112,7 @@
         }
 
         .nav-links a:hover {
-            color: #e63946;
+            color: var(--rojo);
         }
 
         /* Hero Section */
@@ -120,8 +137,17 @@
             margin-bottom: 1rem;
         }
 
-        .hero h1 span {
-            color: #e63946;
+        .hero h1 .america {
+            color: var(--blanco);
+        }
+
+        .hero h1 .express {
+            color: var(--rojo);
+        }
+
+        .hero h1 .aexa {
+            color: var(--verde);
+            font-size: 2rem;
         }
 
         .hero p {
@@ -133,7 +159,7 @@
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
-            background: #e63946;
+            background: var(--rojo);
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
@@ -144,16 +170,17 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            background: #c1121f;
+            background: var(--rojo-oscuro);
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid #e63946;
+            border: 2px solid var(--verde);
         }
 
         .btn-outline:hover {
-            background: #e63946;
+            background: var(--verde);
+            border-color: var(--verde);
         }
 
         /* Secciones */
@@ -174,7 +201,7 @@
             content: '';
             width: 80px;
             height: 4px;
-            background: #e63946;
+            background: var(--rojo);
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -195,15 +222,17 @@
             overflow: hidden;
             transition: transform 0.3s;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .bus-card:hover {
             transform: translateY(-10px);
+            border-color: var(--rojo);
         }
 
         .bus-img {
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--rojo) 0%, var(--verde) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -224,10 +253,18 @@
             margin-bottom: 1rem;
         }
 
-        .badge {
+        .badge-rojo {
             display: inline-block;
             padding: 0.3rem 0.8rem;
-            background: #e63946;
+            background: var(--rojo);
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .badge-verde {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--verde);
             border-radius: 20px;
             font-size: 0.8rem;
         }
@@ -245,16 +282,18 @@
             background: rgba(255,255,255,0.05);
             border-radius: 15px;
             transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .servicio-card:hover {
             transform: translateY(-5px);
             background: rgba(255,255,255,0.1);
+            border-color: var(--verde);
         }
 
         .servicio-card i {
             font-size: 3rem;
-            color: #e63946;
+            color: var(--rojo);
             margin-bottom: 1rem;
         }
 
@@ -264,7 +303,7 @@
 
         /* Requisitos */
         .requisitos {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--rojo) 0%, var(--verde) 100%);
             border-radius: 20px;
             padding: 2rem;
         }
@@ -285,7 +324,7 @@
         }
 
         .requisitos-list i {
-            color: #00ff00;
+            color: var(--blanco);
         }
 
         /* Contacto */
@@ -299,6 +338,7 @@
             background: rgba(255,255,255,0.05);
             padding: 2rem;
             border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .contacto-info p {
@@ -309,7 +349,7 @@
         }
 
         .contacto-info i {
-            color: #e63946;
+            color: var(--rojo);
             width: 25px;
         }
 
@@ -326,7 +366,7 @@
         }
 
         .social-links a:hover {
-            color: #e63946;
+            color: var(--rojo);
         }
 
         .discord-widget {
@@ -334,6 +374,11 @@
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .discord-widget i {
+            color: #5865F2;
         }
 
         /* Footer */
@@ -342,6 +387,15 @@
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
+            border-top: 2px solid var(--rojo);
+        }
+
+        .footer .rojo {
+            color: var(--rojo);
+        }
+
+        .footer .verde {
+            color: var(--verde);
         }
 
         /* Responsive */
@@ -364,7 +418,11 @@
     <!-- Navegación -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">TRANSPORTES<span>PERÚ</span></div>
+            <div class="logo">
+                <span class="america">AMERICA</span>
+                <span class="express">EXPRESS</span>
+                <span class="aexa"> [AEXA]</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#flota">Flota</a></li>
@@ -378,24 +436,29 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>Bienvenido a <span>TRANSPORTES PERÚ</span></h1>
+            <h1>
+                <span class="america">AMERICA</span>
+                <span class="express">EXPRESS</span>
+                <span class="aexa"> [AEXA]</span>
+            </h1>
             <p>🚌 La empresa de buses más profesional de ETS2 Peru Server 🚌</p>
-            <p>✈️ Rutas nacionales e internacionales | Puntualidad | Seguridad | Confort ✈️</p>
-            <a href="#contacto" class="btn">🚀 Únete Ahora</a>
-            <a href="#flota" class="btn btn-outline">🚌 Ver Nuestra Flota</a>
+            <p>🇵🇪 Rutas nacionales e internacionales | Puntualidad | Seguridad | Confort 🇵🇪</p>
+            <p style="color: var(--rojo); font-weight: bold;">❤️ Rojo | 🤍 Blanco | 💚 Verde - Los colores de nuestra pasión ❤️💚🤍</p>
+            <a href="#contacto" class="btn">🚀 Únete a AEXA Ahora</a>
+            <a href="#flota" class="btn btn-outline">🚌 Conoce Nuestra Flota</a>
         </div>
     </section>
 
     <!-- Flota -->
     <section id="flota" class="section">
-        <h2 class="section-title">🚌 Nuestra Flota 🚌</h2>
+        <h2 class="section-title">🚌 Nuestra Flota AEXA 🚌</h2>
         <div class="flota-grid">
             <div class="bus-card">
                 <div class="bus-img">🚌</div>
                 <div class="bus-info">
                     <h3>Scania Touring HD</h3>
                     <p>Bus de lujo con capacidad para 50 pasajeros. Aire acondicionado, WiFi, baño.</p>
-                    <span class="badge">★★★★★ Premium</span>
+                    <span class="badge-rojo">★★★★★ Premium AEXA</span>
                 </div>
             </div>
             <div class="bus-card">
@@ -403,7 +466,7 @@
                 <div class="bus-info">
                     <h3>Mercedes-Benz Paradiso</h3>
                     <p>Confort y seguridad en cada viaje. Asientos reclinables y entretenimiento.</p>
-                    <span class="badge">★★★★☆ Ejecutivo</span>
+                    <span class="badge-verde">★★★★☆ Ejecutivo AEXA</span>
                 </div>
             </div>
             <div class="bus-card">
@@ -411,7 +474,7 @@
                 <div class="bus-info">
                     <h3>Volvo 9800</h3>
                     <p>La excelencia en carretera. Tecnología de punta y máxima comodidad.</p>
-                    <span class="badge">★★★★★ Gold Class</span>
+                    <span class="badge-rojo">★★★★★ Gold Class AEXA</span>
                 </div>
             </div>
             <div class="bus-card">
@@ -419,7 +482,7 @@
                 <div class="bus-info">
                     <h3>Irizar i8</h3>
                     <p>Diseño europeo, lujo y estilo. Para los viajes más exigentes.</p>
-                    <span class="badge">★★★★★ VIP</span>
+                    <span class="badge-verde">★★★★★ VIP AEXA</span>
                 </div>
             </div>
         </div>
@@ -427,7 +490,7 @@
 
     <!-- Servicios -->
     <section id="servicios" class="section">
-        <h2 class="section-title">✨ Nuestros Servicios ✨</h2>
+        <h2 class="section-title">✨ Servicios AEXA ✨</h2>
         <div class="servicios-grid">
             <div class="servicio-card">
                 <i class="fas fa-route"></i>
@@ -464,7 +527,7 @@
 
     <!-- Requisitos -->
     <section id="requisitos" class="section">
-        <h2 class="section-title">📋 Requisitos para Unirse 📋</h2>
+        <h2 class="section-title">📋 Requisitos para Unirse a AEXA 📋</h2>
         <div class="requisitos">
             <ul class="requisitos-list">
                 <li><i class="fas fa-check-circle"></i> Tener Euro Truck Simulator 2 (ETS2)</li>
@@ -481,14 +544,14 @@
 
     <!-- Contacto -->
     <section id="contacto" class="section">
-        <h2 class="section-title">📞 Contáctanos 📞</h2>
+        <h2 class="section-title">📞 Contacta con AEXA 📞</h2>
         <div class="contacto-container">
             <div class="contacto-info">
                 <h3>Información de Contacto</h3>
-                <p><i class="fas fa-envelope"></i> transporte.peru@ets2.com</p>
-                <p><i class="fab fa-discord"></i> discord.gg/transportesperu</p>
-                <p><i class="fab fa-steam"></i> Grupo Steam: Transportes Perú</p>
-                <p><i class="fab fa-youtube"></i> /TransportesPeruETS2</p>
+                <p><i class="fas fa-envelope"></i> america.express.aexa@ets2.com</p>
+                <p><i class="fab fa-discord"></i> discord.gg/americaexpressaexa</p>
+                <p><i class="fab fa-steam"></i> Grupo Steam: America Express [AEXA]</p>
+                <p><i class="fab fa-youtube"></i> /AmericaExpressAEXA</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-discord"></i></a>
                     <a href="#"><i class="fab fa-steam"></i></a>
@@ -501,15 +564,17 @@
                 <i class="fab fa-discord" style="font-size: 3rem; color: #5865F2;"></i>
                 <h3>Únete a nuestro Discord</h3>
                 <p>Comunidad activa, convoyes diarios y eventos especiales</p>
-                <a href="#" class="btn" style="background: #5865F2;">🎮 Unirse al Discord</a>
+                <a href="#" class="btn" style="background: #5865F2;">🎮 Unirse al Discord de AEXA</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Transportes Perú - ETS2 Peru Server. Todos los derechos reservados.</p>
+        <p><span class="rojo">AMERICA EXPRESS</span> <span class="verde">[AEXA]</span> - ETS2 Peru Server</p>
+        <p style="margin-top: 0.5rem;">❤️ <span class="rojo">Rojo</span> | 🤍 Blanco | 💚 <span class="verde">Verde</span> - Los colores de nuestra pasión ❤️💚🤍</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem;">🚌 La empresa de buses más grande del Perú en ETS2 🚌</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">&copy; 2024 America Express [AEXA] - Todos los derechos reservados</p>
     </footer>
 
     <script>
