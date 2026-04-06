@@ -23,11 +23,10 @@
         :root {
             --rojo: #cc0000;
             --verde: #00a650;
-            --blanco: #ffffff;
             --rojo-oscuro: #990000;
             --verde-oscuro: #008040;
-            --gris-claro: #f5f5f5;
-            --gris-borde: #e0e0e0;
+            --gris-claro: #fafafa;
+            --gris-borde: #eeeeee;
         }
 
         /* Animaciones */
@@ -42,18 +41,7 @@
             }
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Header / Navegación */
+        /* Header / Navegación - BARRA BLANCA */
         .navbar {
             background: #ffffff;
             padding: 1rem 5%;
@@ -61,8 +49,8 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            border-bottom: 3px solid var(--rojo);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--gris-borde);
         }
 
         .nav-container {
@@ -108,10 +96,12 @@
             color: var(--rojo);
         }
 
-        /* Hero Section */
+        /* Hero Section CON IMAGEN DE BUS */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(204,0,0,0.05) 0%, rgba(0,166,80,0.05) 100%);
+            background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -197,7 +187,7 @@
         .section-title::after {
             content: '';
             width: 80px;
-            height: 4px;
+            height: 3px;
             background: var(--rojo);
             position: absolute;
             bottom: -10px;
@@ -214,18 +204,18 @@
         }
 
         .bus-card {
-            background: var(--gris-claro);
+            background: #ffffff;
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border: 1px solid var(--gris-borde);
         }
 
         .bus-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            border-color: var(--rojo);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--verde);
         }
 
         .bus-img {
@@ -280,7 +270,7 @@
         .servicio-card {
             text-align: center;
             padding: 2rem;
-            background: var(--gris-claro);
+            background: #ffffff;
             border-radius: 15px;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid var(--gris-borde);
@@ -288,7 +278,7 @@
 
         .servicio-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             border-color: var(--verde);
         }
 
@@ -309,10 +299,15 @@
 
         /* Requisitos */
         .requisitos {
-            background: linear-gradient(135deg, var(--rojo) 0%, var(--verde) 100%);
+            background: var(--gris-claro);
             border-radius: 20px;
             padding: 2rem;
-            color: #fff;
+            border: 1px solid var(--gris-borde);
+        }
+
+        .requisitos h2 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
         }
 
         .requisitos-list {
@@ -328,10 +323,11 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: #4a4a5a;
         }
 
         .requisitos-list i {
-            color: #fff;
+            color: var(--verde);
         }
 
         /* Contacto */
@@ -342,7 +338,7 @@
         }
 
         .contacto-info {
-            background: var(--gris-claro);
+            background: #ffffff;
             padding: 2rem;
             border-radius: 15px;
             border: 1px solid var(--gris-borde);
@@ -383,7 +379,7 @@
         }
 
         .discord-widget {
-            background: var(--gris-claro);
+            background: #ffffff;
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -436,7 +432,7 @@
     </style>
 </head>
 <body>
-    <!-- Navegación -->
+    <!-- Navegación - BARRA BLANCA -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -454,7 +450,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section CON IMAGEN -->
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>
@@ -464,7 +460,7 @@
             </h1>
             <p>🚌 La empresa de buses más profesional de ETS2 Peru Server 🚌</p>
             <p>🇵🇪 Rutas nacionales e internacionales | Puntualidad | Seguridad | Confort 🇵🇪</p>
-            <p style="color: var(--rojo); font-weight: bold;">❤️ Rojo | 🤍 Blanco | 💚 Verde - Los colores de nuestra pasión ❤️💚🤍</p>
+            <p>❤️ <span style="color: #cc0000;">Rojo</span> | 🤍 Blanco | 💚 <span style="color: #00a650;">Verde</span> - Los colores de nuestra pasión</p>
             <a href="#contacto" class="btn">🚀 Únete a AEXA Ahora</a>
             <a href="#flota" class="btn btn-outline">🚌 Conoce Nuestra Flota</a>
         </div>
@@ -593,7 +589,7 @@
     <!-- Footer -->
     <footer class="footer">
         <p><span class="rojo">AMERICA EXPRESS</span> <span class="verde">[AEXA]</span> - ETS2 Peru Server</p>
-        <p style="margin-top: 0.5rem;">❤️ <span class="rojo">Rojo</span> | 🤍 Blanco | 💚 <span class="verde">Verde</span> - Los colores de nuestra pasión ❤️💚🤍</p>
+        <p style="margin-top: 0.5rem;">❤️ <span class="rojo">Rojo</span> | 🤍 Blanco | 💚 <span class="verde">Verde</span> - Los colores de nuestra pasión</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem;">🚌 La empresa de buses más grande del Perú en ETS2 🚌</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem;">&copy; 2024 America Express [AEXA] - Todos los derechos reservados</p>
     </footer>
@@ -625,7 +621,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.bus-card, .servicio-card, .contacto-info, .discord-widget').forEach(el => {
+        document.querySelectorAll('.bus-card, .servicio-card, .contacto-info, .discord-widget, .requisitos').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
