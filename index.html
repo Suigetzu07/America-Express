@@ -211,7 +211,7 @@
             transform: translateX(-50%);
         }
 
-        /* Flota de Buses - CON IMÁGENES MANTENIENDO DISEÑO */
+        /* Flota de Buses - CON IMÁGENES LOCALES */
         .flota-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -234,7 +234,7 @@
             border-color: var(--verde);
         }
 
-        /* NUEVO ESTILO PARA BUS-IMG CON IMÁGENES Y GRADIENTE */
+        /* Estilo para BUS-IMG CON IMÁGENES LOCALES Y GRADIENTE */
         .bus-img {
             height: 200px;
             position: relative;
@@ -245,7 +245,7 @@
             justify-content: center;
         }
 
-        /* Imagen superpuesta con opacidad */
+        /* Imagen local superpuesta con opacidad */
         .bus-img .bus-foto {
             position: absolute;
             top: 0;
@@ -491,7 +491,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section CON IMAGEN DE BUS VISIBLE -->
+    <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>
@@ -507,14 +507,14 @@
         </div>
     </section>
 
-    <!-- FLOTA CON IMÁGENES + EMOJIS + GRADIENTE -->
+    <!-- FLOTA CON IMÁGENES LOCALES + EMOJIS + GRADIENTE -->
     <section id="flota" class="section">
         <h2 class="section-title">🚌 Nuestra Flota AEXA 🚌</h2>
         <div class="flota-grid">
             <div class="bus-card">
                 <div class="bus-img">
-                    <!-- Imagen del bus específico (superpuesta con opacidad) -->
-                    <img class="bus-foto" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=200&fit=crop" alt="Irizar i6s" loading="lazy">
+                    <!-- IMAGEN LOCAL: carpeta "imagenes", archivo "irizar-i6s.jpg" -->
+                    <img class="bus-foto" src="imagenes/irizar-i6s.jpg" alt="Irizar i6s" loading="lazy">
                     <div class="bus-emoji">🚌</div>
                 </div>
                 <div class="bus-info">
@@ -525,7 +525,8 @@
             </div>
             <div class="bus-card">
                 <div class="bus-img">
-                    <img class="bus-foto" src="https://images.unsplash.com/photo-1570125909232-263b7b7b6c1f?w=400&h=200&fit=crop" alt="Marcopolo G7 1800 DD 15m" loading="lazy">
+                    <!-- IMAGEN LOCAL: carpeta "imagenes", archivo "marcopolo-g7.jpg" -->
+                    <img class="bus-foto" src="imagenes/marcopolo-g7.jpg" alt="Marcopolo G7 1800 DD 15m" loading="lazy">
                     <div class="bus-emoji">🚍</div>
                 </div>
                 <div class="bus-info">
@@ -536,7 +537,8 @@
             </div>
             <div class="bus-card">
                 <div class="bus-img">
-                    <img class="bus-foto" src="https://images.unsplash.com/photo-1586892477838-2f96e8f2e2a8?w=400&h=200&fit=crop" alt="Modasa Zeus 5" loading="lazy">
+                    <!-- IMAGEN LOCAL: carpeta "imagenes", archivo "modasa-zeus5.jpg" -->
+                    <img class="bus-foto" src="imagenes/modasa-zeus5.jpg" alt="Modasa Zeus 5" loading="lazy">
                     <div class="bus-emoji">🚎</div>
                 </div>
                 <div class="bus-info">
@@ -547,7 +549,8 @@
             </div>
             <div class="bus-card">
                 <div class="bus-img">
-                    <img class="bus-foto" src="https://images.unsplash.com/photo-1566473965990-3de3b0f2cd9a?w=400&h=200&fit=crop" alt="Marcopolo Paradiso G8 1800" loading="lazy">
+                    <!-- IMAGEN LOCAL: carpeta "imagenes", archivo "marcopolo-paradiso.jpg" -->
+                    <img class="bus-foto" src="imagenes/marcopolo-paradiso.jpg" alt="Marcopolo Paradiso G8 1800" loading="lazy">
                     <div class="bus-emoji">🚌</div>
                 </div>
                 <div class="bus-info">
@@ -630,6 +633,7 @@
                 <i class="fab fa-discord" style="font-size: 3rem; color: #5865F2;"></i>
                 <h3>Únete a nuestro Discord</h3>
                 <p>Comunidad activa, convoyes diarios y eventos especiales</p>
+                <!-- CAMBIA EL # POR TU INVITACIÓN DE DISCORD -->
                 <a href="#" class="btn" style="background: #5865F2;">🎮 Unirse al Discord de AEXA</a>
             </div>
         </div>
